@@ -3,7 +3,7 @@ A no frills recipe program. Creates recipe files in text format without a databa
 
 ![Screenshot](/screenshot/rc_main_window.png?raw=true "Screenshot")
 
-##Installation
+## Installation
 
 You can download the recipe_creator_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
@@ -11,7 +11,7 @@ No Windows exe, but you're welcome to make your own using the source files on wi
 Otherwise either clone the repo or download the recipe_creator_source_files tarball.
 Make recipe_creator.py executable and run from the command line or make a program shortcut.
 
-##Usage
+## Usage
 
 On the first run of the program a file named CONFIG will be created in the directory where the program resides.
 Click Config in the menu to set your default save path. This will be where the save dialog starts when saving a file and 
@@ -30,7 +30,7 @@ Both of these features can be turned off by editing the CONFIG file and changing
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
-##License
+## License
 
 Licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
