@@ -22,6 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 import tkinter as tk
+#from tkinter import *
 from tkinter import ttk
 from tkinter import scrolledtext
 from tkinter import Menu
@@ -67,6 +68,13 @@ class MAIN():
         key bindings and all the widgets
         '''
         self.win = tk.Tk()
+        self.win.style = ttk.Style()
+        self.win.style.theme_use("alt")
+        self.width = int(self.win.winfo_screenwidth() / 1.5)
+        self.height = int(self.win.winfo_screenheight() / 1.3)
+        print(self.width)
+        print(self.height)
+        self.win.geometry("%sx%s" % (self.width, self.height))
         self.win.title('Recipe Creator')
         #self.win.tk.call('wm', 'iconphoto', self.win._w, tk.PhotoImage(file='defcon.gif'))
         self.bind_keys()
@@ -214,21 +222,25 @@ class MAIN():
 
         # Add a scroll box for ingredients
         iscroll_w = 30
-        iscroll_h = 40
-        self.ingredients = scrolledtext.ScrolledText(self.ing_frame,
-                                                     width=iscroll_w, height=iscroll_h,
-                                                     bd=5, wrap=tk.WORD, relief=tk.RIDGE)
-        self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky='W')
+        #iscroll_h = 30
+        #self.ingredients = scrolledtext.ScrolledText(self.ing_frame,
+        #                                             width=iscroll_w, height=iscroll_h,
+        #                                             bd=5, wrap=tk.WORD, relief=tk.RIDGE)
+        self.ingredients = scrolledtext.ScrolledText(self.ing_frame, bd=5,\
+                wrap=tk.WORD, relief=tk.RIDGE)
+        self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky='NSEW')
         self.ingredients.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line')
 
         # Add a scroll text box for directions
         dscroll_w = 75
-        dscroll_h = 40
-        self.directions = scrolledtext.ScrolledText(self.dir_frame, width=dscroll_w,
-                                                    height=dscroll_h, wrap=tk.WORD,
-                                                    bd=5, relief=tk.RIDGE)
-        self.directions.grid(column=0, row=0, padx=8, pady=(0, 20))
+        #dscroll_h = 30
+        #self.directions = scrolledtext.ScrolledText(self.dir_frame, width=dscroll_w,
+        #                                            height=dscroll_h, wrap=tk.WORD,
+        #                                            bd=5, relief=tk.RIDGE)
+        self.directions = scrolledtext.ScrolledText(self.dir_frame, bd=5,\
+                wrap=tk.WORD, relief=tk.RIDGE)
+        self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky='NSEW')
         tt.create_ToolTip(self.directions, 'Enter the recipe instructions here')
 
         self.title_entered.focus()  # Place cursor into the title entry box
@@ -336,6 +348,9 @@ class AboutWindow():
 #=============
 #Start GUI
 #=============
+#root = tk.Tk()
+#root.style = ttk.Style()
+#root.style.theme_use("clam")
 main = MAIN()    # Create an instance of the MAIN class
 
 main.win.mainloop()  # Use the instance variable to call mainloop via win
