@@ -22,7 +22,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
 import tkinter as tk
-#from tkinter import *
 from tkinter import ttk
 from tkinter import scrolledtext
 from tkinter import Menu
@@ -62,21 +61,17 @@ class MAIN():
     '''
     The main window where the recipe information is entered
     '''
-    def __init__(self):
+    def __init__(self, master):
         '''
         Create the root window, call the methods to create
         key bindings and all the widgets
         '''
-        self.win = tk.Tk()
-        self.win.style = ttk.Style()
-        self.win.style.theme_use("alt")
-        self.width = int(self.win.winfo_screenwidth() / 1.5)
-        self.height = int(self.win.winfo_screenheight() / 1.3)
-        print(self.width)
-        print(self.height)
-        self.win.geometry("%sx%s" % (self.width, self.height))
-        self.win.title('Recipe Creator')
-        #self.win.tk.call('wm', 'iconphoto', self.win._w, tk.PhotoImage(file='defcon.gif'))
+        self.frame = tk.Frame(root)
+        self.frame.pack(fill = 'both', expand = True, side = 'top')
+        self.frame.rowconfigure(1, weight = 1)
+        self.frame.columnconfigure(0, weight = 1)
+        self.frame.columnconfigure(1, weight = 3)
+        master.title('Recipe Creator') 
         self.bind_keys()
         self.create_widgets()
 
@@ -84,19 +79,19 @@ class MAIN():
         '''
         Set the bindings for the keyboard shortcuts to the menu items
         '''
-        self.win.bind('<Control-s>', self._save)
-        self.win.bind('<Control-n>', self._new)
-        self.win.bind('<Control-q>', self._quit)
-        self.win.bind('<Control-h>', HelpWindow)
-        self.win.bind('<Control-c>', DefaultPath)
+        root.bind('<Control-s>', self._save)
+        root.bind('<Control-n>', self._new)
+        root.bind('<Control-q>', self._quit)
+        root.bind('<Control-h>', HelpWindow)
+        root.bind('<Control-c>', DefaultPath)
 
     def _quit(self, event='q'):
         '''
         Function to exit GUI cleanly
         Bound to the Exit command on the file menu
         '''
-        self.win.quit()
-        self.win.destroy()
+        root.quit()
+        root.destroy()
         exit()
 
     def focus_next_widget(self, event):
@@ -179,8 +174,8 @@ class MAIN():
 
         # Creating a Menu Bar
 
-        menu_bar = Menu(self.win)
-        self.win.config(menu=menu_bar)
+        menu_bar = Menu(root)
+        root.config(menu=menu_bar)
         # Code for the cascading File menu
         file_menu = Menu(menu_bar, tearoff=0)
         file_menu.add_command(label='New   Ctrl+n', command=self._new)
@@ -201,16 +196,20 @@ class MAIN():
         menu_bar.add_command(label='Config', command=DefaultPath)
 
         # Top frame for the recipe name entry
-        self.title_frame = ttk.LabelFrame(self.win, text=' Enter Recipe Title ')
+        self.title_frame = ttk.LabelFrame(self.frame, text=' Enter Recipe Title ')
         self.title_frame.grid(column=0, row=0, columnspan=2, padx=8, pady=4, sticky='W')
 
         # Left frame for the ingredients list
-        self.ing_frame = ttk.LabelFrame(self.win, text=' Ingredients ')
-        self.ing_frame.grid(column=0, row=1, padx=8, pady=4, sticky='W')
+        self.ing_frame = ttk.LabelFrame(self.frame, text=' Ingredients ')
+        self.ing_frame.grid(column=0, row=1, padx=8, pady=4, sticky = 'news')
+        self.ing_frame.rowconfigure(0, weight = 1)
+        self.ing_frame.columnconfigure(0, weight = 1)
 
         # Right frame for the directions
-        self.dir_frame = ttk.LabelFrame(self.win, text=' DIrections ')
-        self.dir_frame.grid(column=1, row=1, padx=8, pady=4, sticky='E')
+        self.dir_frame = ttk.LabelFrame(self.frame, text=' Directions ')
+        self.dir_frame.grid(column=1, row=1, padx=8, pady=4, sticky='nwes')
+        self.dir_frame.rowconfigure(0, weight = 1)
+        self.dir_frame.columnconfigure(0, weight = 1)
 
         # Adding a text box entry widget for the recipe title
         self.title = tk.StringVar()
@@ -221,26 +220,16 @@ class MAIN():
         tt.create_ToolTip(self.title_entered, 'Enter the title of the recipe here')
 
         # Add a scroll box for ingredients
-        iscroll_w = 30
-        #iscroll_h = 30
-        #self.ingredients = scrolledtext.ScrolledText(self.ing_frame,
-        #                                             width=iscroll_w, height=iscroll_h,
-        #                                             bd=5, wrap=tk.WORD, relief=tk.RIDGE)
-        self.ingredients = scrolledtext.ScrolledText(self.ing_frame, bd=5,\
+        self.ingredients = scrolledtext.ScrolledText(self.ing_frame, width = 30, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
-        self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky='NSEW')
+        self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         self.ingredients.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line')
 
         # Add a scroll text box for directions
-        dscroll_w = 75
-        #dscroll_h = 30
-        #self.directions = scrolledtext.ScrolledText(self.dir_frame, width=dscroll_w,
-        #                                            height=dscroll_h, wrap=tk.WORD,
-        #                                            bd=5, relief=tk.RIDGE)
         self.directions = scrolledtext.ScrolledText(self.dir_frame, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
-        self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky='NSEW')
+        self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         tt.create_ToolTip(self.directions, 'Enter the recipe instructions here')
 
         self.title_entered.focus()  # Place cursor into the title entry box
@@ -348,9 +337,13 @@ class AboutWindow():
 #=============
 #Start GUI
 #=============
-#root = tk.Tk()
-#root.style = ttk.Style()
-#root.style.theme_use("clam")
-main = MAIN()    # Create an instance of the MAIN class
-
-main.win.mainloop()  # Use the instance variable to call mainloop via win
+root = tk.Tk()
+width = int(root.winfo_screenwidth() / 2)
+height = int(root.winfo_screenheight() / 1.4)
+root.geometry('%sx%s' % (width, height))
+root.rowconfigure(0, weight = 1)
+root.rowconfigure(1, weight = 1)
+root.columnconfigure(0, weight = 1)
+root.columnconfigure(1, weight = 3)
+main = MAIN(root)    # Create an instance of the MAIN class
+root.mainloop()
