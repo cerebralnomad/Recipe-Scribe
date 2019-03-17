@@ -68,6 +68,8 @@ class MAIN():
         '''
         self.frame = tk.Frame(root)
         self.frame.pack(fill = 'both', expand = True, side = 'top')
+        #self.frame.configure(background = 'gray83')
+        self.frame.configure(background = 'gray83')
         self.frame.rowconfigure(1, weight = 1)
         self.frame.columnconfigure(0, weight = 1)
         self.frame.columnconfigure(1, weight = 3)
@@ -176,6 +178,7 @@ class MAIN():
 
         menu_bar = Menu(root)
         root.config(menu=menu_bar)
+        menu_bar.config(background = 'gray83')
         # Code for the cascading File menu
         file_menu = Menu(menu_bar, tearoff=0)
         file_menu.add_command(label='New   Ctrl+n', command=self._new)
@@ -341,9 +344,13 @@ root = tk.Tk()
 width = int(root.winfo_screenwidth() / 2)
 height = int(root.winfo_screenheight() / 1.4)
 root.geometry('%sx%s' % (width, height))
+root.configure(background = 'gray83')
 root.rowconfigure(0, weight = 1)
 root.rowconfigure(1, weight = 1)
 root.columnconfigure(0, weight = 1)
 root.columnconfigure(1, weight = 3)
+style = ttk.Style()
+style.configure('TLabelframe', background = 'gray83')
+style.configure('TLabelframe.Label', background = 'gray83')
 main = MAIN(root)    # Create an instance of the MAIN class
 root.mainloop()
