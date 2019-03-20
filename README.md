@@ -1,5 +1,6 @@
 # gui_recipe_creator
-A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.
+A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
+Programmed in Python 3.6
 
 ![Screenshot](/screenshot/rc_main_window.png?raw=true "Screenshot")
 
@@ -11,12 +12,15 @@ No Windows exe, but you're welcome to make your own using the source files on wi
 Otherwise either clone the repo or download the recipe_creator_source_files tarball.
 Make recipe_creator.py executable and run from the command line or make a program shortcut.
 
+Requires tkinter to be installed. (apt install python-tk)
+
 ## Usage
 
 On the first run of the program a file named CONFIG will be created in the directory where the program resides.
 Click Config in the menu to set your default save path. This will be where the save dialog starts when saving a file and 
 should be the root directory of your recipe folder. 
-Not setting this will cause the save dialog to default to the program folder.
+Not setting this will cause the save dialog to default to the program folder and require unnecessary navigation to
+the desired directory to save the first file each session.
 
 Fill out the recipe title, the ingredients, and the directions in the main window.
 Use File>Save or Ctrl+s to save. 
@@ -25,7 +29,8 @@ The recipe title will be reformatted for use as the file name. It will be conver
 changed to underscores.
 
 A bullet point will be added before each ingredient.
-Both of these features can be turned off by editing the CONFIG file and changing the relevant settings from True to False
+Both of these features can be turned off by opening the CONFIG file in a text editor and changing the relevant 
+settings from True to False
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
