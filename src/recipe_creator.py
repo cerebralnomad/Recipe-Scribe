@@ -336,7 +336,13 @@ class HelpWindow():
         Create the new window to hold the help text
         '''
         self.helpwin = tk.Tk()
+        width = int(root.winfo_screenwidth() / 2.5)
+        height = int(root.winfo_screenheight() / 1.4)
+        self.helpwin.geometry('%sx%s' % (width, height))
         self.helpwin.configure(background = background)
+        self.helpwin.columnconfigure(0, weight = 1)
+        self.helpwin.rowconfigure(0, weight = 1)
+        #self.helpwin.rowconfigure(1, weight = 1)
         self.helpwin.title('Program Usage')
         self.help_text()
 
@@ -345,18 +351,20 @@ class HelpWindow():
         Create a scrollbox to hold the help information, open the external
         help.txt file and read the contents into the scrollbox
         '''
-        hscroll_w = 80
-        hscroll_h = 40
+        #hscroll_w = 80
+        #hscroll_h = 40
+       # self.help_box = scrolledtext.ScrolledText(self.helpwin,
+       #                                           width=hscroll_w, height=hscroll_h,
+       #                                           wrap=tk.WORD, bd=5, relief=tk.RIDGE)
         self.help_box = scrolledtext.ScrolledText(self.helpwin,
-                                                  width=hscroll_w, height=hscroll_h,
                                                   wrap=tk.WORD, bd=5, relief=tk.RIDGE)
         self.help_box.configure(background = entry_bg, foreground = text_color)
         self.help_box.vbar.configure(troughcolor = 'gray73', background = 'gray80')
-        self.help_box.grid(column=0, row=0, padx=8, pady=(0, 20))
+        self.help_box.grid(column=0, row=0, padx=8, pady=(0, 20), sticky = 'nsew')
         self.help_box.insert(1.0, help_text)
         self.help_button = tk.Button(self.helpwin, text='Close', command=self.helpwin.destroy)
         self.help_button.configure(foreground = text_color, background = 'gray77')
-        self.help_button.grid(column=0, row=1, padx=50, pady=(0, 15), sticky='WE')
+        self.help_button.grid(column=0, row=1, padx=50, pady=(0, 15), sticky='we')
 
 class AboutWindow():
     '''

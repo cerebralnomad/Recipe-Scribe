@@ -7,7 +7,9 @@ class ToolTip():
         self.tip_window = None 
 
     def show_tip(self, tip_text):
-        "Display text in a tooltip window"
+        
+        # Display text in a tooltip window
+        
         if self.tip_window or not tip_text:
             return
         x, y, _cx, cy = self.widget.bbox("insert")  # get size of widget
@@ -21,6 +23,7 @@ class ToolTip():
         label = tk.Label(tw, text=tip_text, justify=tk.LEFT,
             background="#ffffe0", relief=tk.SOLID, borderwidth=1,
             font=("tahome", "8", "normal"))
+        label.configure(foreground = 'black')
         label.pack(ipadx=1)
         self.tip_window.after(1500, self.tip_window.destroy)
 
