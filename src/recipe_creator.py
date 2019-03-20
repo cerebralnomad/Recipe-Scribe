@@ -81,22 +81,16 @@ else:
     with open("CONFIG", "a") as configfile:
         config.write(configfile) 
 
-# Set the color theme for the GUI based on the config file
+# Set the color theme for the GUI to avoid ocnflicts with
+# other distros and dark themes
 
-#if theme == 'default':
 background = 'gray83'
 text_color = 'black'
 entry_bg = 'gray95'
 entry_text = 'black'
 style.configure('TLabelframe', background = background)
 style.configure('TLabelframe.Label', background = background)
-#else:
-#    background = 'gray18'
-#    text_color = 'white'
-#    entry_bg = 'gray28'
-#    entry_text = 'white'
-#    style.configure('TLabelframe', background = background)
-#    style.configure('TLabelframe.Label', background = background, foreground = text_color)
+
 
 class MAIN():
     '''
@@ -113,7 +107,7 @@ class MAIN():
         self.frame.rowconfigure(1, weight = 1)
         self.frame.columnconfigure(0, weight = 1)
         self.frame.columnconfigure(1, weight = 3)
-        master.title('Recipe Creator') 
+        master.title('Recipe Creator')
         self.bind_keys()
         self.create_widgets()
 
@@ -134,15 +128,18 @@ class MAIN():
         '''
         root.quit()
         root.destroy()
-        exit()
+        #exit()
 
     def focus_next_widget(self, event):
         '''
         Allows the use of the TAB key to advance to the next entry field
-        TAB must be pressed twice for the cursor to show. Reason for this currently unknown
         '''
-        event.widget.tk_focusNext().focus()
-        return 'break'
+        if event.widget == self.title_entered:
+            self.ingredients.focus_set()
+            return 'break'
+        elif event.widget == self.ingredients:
+            self.directions.focus_set()
+            return 'break'
 
     def _save(self, event='s'):
         '''
@@ -267,6 +264,7 @@ class MAIN():
         self.ingredients = scrolledtext.ScrolledText(self.ing_frame, width = 30, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
         self.ingredients.configure(background = entry_bg, foreground = entry_text)
+        self.ingredients.vbar.configure(troughcolor = 'gray73', background = 'gray80')
         self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         self.ingredients.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line')
@@ -275,6 +273,7 @@ class MAIN():
         self.directions = scrolledtext.ScrolledText(self.dir_frame, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
         self.directions.configure(background = entry_bg, foreground = entry_text)
+        self.directions.vbar.configure(troughcolor = 'gray73', background = 'gray80')
         self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         tt.create_ToolTip(self.directions, 'Enter the recipe instructions here')
 
@@ -350,6 +349,7 @@ class HelpWindow():
                                                   width=hscroll_w, height=hscroll_h,
                                                   wrap=tk.WORD, bd=5, relief=tk.RIDGE)
         self.help_box.configure(background = entry_bg, foreground = text_color)
+        self.help_box.vbar.configure(troughcolor = 'gray73', background = 'gray80')
         self.help_box.grid(column=0, row=0, padx=8, pady=(0, 20))
         self.help_box.insert(1.0, help_text)
         self.help_button = tk.Button(self.helpwin, text='Close', command=self.helpwin.destroy)
