@@ -35,6 +35,13 @@ settings from True to False
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
+## Notes
+Earlier versions were found to problematic with dark themes on certain distros and with some resolutions.  
+Revisions were made that forces a color palette matching the screenshot above regardless of system theme and
+calculates initial window size based on screen geometry.
+
+The entry boxes now scale properly when resizing the window.
+
 ## License
 
 Licensed under [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
