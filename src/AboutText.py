@@ -1,7 +1,7 @@
 
 about_text = '''
 Recipe Creator
-version 0.3.2
+version 0.3.4
 
 Source Files on GitHub
 https://github.com/cerebralnomad/gui_recipe_creator

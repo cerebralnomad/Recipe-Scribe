@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 '''
 Recipe Creator
-version 0.3.2
+version 0.3.4
 Basic no frills GUI Program for creating and saving recipes.
 Written in Python 3.6 and TKinter
  
@@ -34,28 +34,69 @@ import ToolTip as tt
 from HelpText import help_text
 from AboutText import about_text
 
+root = tk.Tk()
+width = int(root.winfo_screenwidth() / 2)
+height = int(root.winfo_screenheight() / 1.4)
+root.geometry('%sx%s' % (width, height))
+root.configure(background = 'gray83')
+root.rowconfigure(0, weight = 1)
+root.rowconfigure(1, weight = 1)
+root.columnconfigure(0, weight = 1)
+root.columnconfigure(1, weight = 3)
+style = ttk.Style()
+#style.configure('TLabelframe', background = 'gray83')
+#style.configure('TLabelframe.Label', background = 'gray83')
 
 config = configparser.ConfigParser()
+
+# Set the variables from the config file if it exists
+# If not create it withe the default values
 
 if path.exists("CONFIG"):
     config.read("CONFIG")
     save_path = config.get('DefaultSavePath', 'save_path')
     use_bp = config.get('UseBulletPoints', 'use_bp')
     fn_format = config.get('FormatFileName', 'fn_format')
+    #theme = config.get('Theme', 'theme')
 else:
     file = open('CONFIG', 'w+')
+    file.write("# The save path is set from the GUI. The other settings should be edited manually\n")
+    #file.write("# Options for Theme are 'default' or 'dark'\n")
+    file.write("# Options for UseBulletPoints are True or False\n")
+    file.write("# Options for FormatFileName are True or False\n")
+    file.write("\n")
     file.close()
     save_path = "None"
     use_bp = "True"
     fn_format = "True"
+    #theme = "default"
     config.add_section("DefaultSavePath")
+    #config.add_section("Theme")
     config.add_section("UseBulletPoints")
     config.add_section("FormatFileName")
     config.set("DefaultSavePath", "save_path", "None")
     config.set("UseBulletPoints", "use_bp", "True")
     config.set("FormatFileName", "fn_format", "True")
-    with open("CONFIG", "w+") as configfile:
+    #config.set("Theme", "theme", "default")
+    with open("CONFIG", "a") as configfile:
         config.write(configfile) 
+
+# Set the color theme for the GUI based on the config file
+
+#if theme == 'default':
+background = 'gray83'
+text_color = 'black'
+entry_bg = 'gray95'
+entry_text = 'black'
+style.configure('TLabelframe', background = background)
+style.configure('TLabelframe.Label', background = background)
+#else:
+#    background = 'gray18'
+#    text_color = 'white'
+#    entry_bg = 'gray28'
+#    entry_text = 'white'
+#    style.configure('TLabelframe', background = background)
+#    style.configure('TLabelframe.Label', background = background, foreground = text_color)
 
 class MAIN():
     '''
@@ -68,8 +109,7 @@ class MAIN():
         '''
         self.frame = tk.Frame(root)
         self.frame.pack(fill = 'both', expand = True, side = 'top')
-        #self.frame.configure(background = 'gray83')
-        self.frame.configure(background = 'gray83')
+        self.frame.configure(background = background)
         self.frame.rowconfigure(1, weight = 1)
         self.frame.columnconfigure(0, weight = 1)
         self.frame.columnconfigure(1, weight = 3)
@@ -178,7 +218,7 @@ class MAIN():
 
         menu_bar = Menu(root)
         root.config(menu=menu_bar)
-        menu_bar.config(background = 'gray83')
+        menu_bar.config(background = background, foreground = text_color)
         # Code for the cascading File menu
         file_menu = Menu(menu_bar, tearoff=0)
         file_menu.add_command(label='New   Ctrl+n', command=self._new)
@@ -218,6 +258,7 @@ class MAIN():
         self.title = tk.StringVar()
         self.title_entered = tk.Entry(self.title_frame, width=75, textvariable=self.title,
                                       bd=5, relief=tk.RIDGE)
+        self.title_entered.configure(background = entry_bg, foreground = entry_text)
         self.title_entered.grid(column=0, row=2, padx=8, pady=(3, 8), sticky='W')
         self.title_entered.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.title_entered, 'Enter the title of the recipe here')
@@ -225,6 +266,7 @@ class MAIN():
         # Add a scroll box for ingredients
         self.ingredients = scrolledtext.ScrolledText(self.ing_frame, width = 30, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
+        self.ingredients.configure(background = entry_bg, foreground = entry_text)
         self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         self.ingredients.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line')
@@ -232,6 +274,7 @@ class MAIN():
         # Add a scroll text box for directions
         self.directions = scrolledtext.ScrolledText(self.dir_frame, bd=5,\
                 wrap=tk.WORD, relief=tk.RIDGE)
+        self.directions.configure(background = entry_bg, foreground = entry_text)
         self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         tt.create_ToolTip(self.directions, 'Enter the recipe instructions here')
 
@@ -292,6 +335,7 @@ class HelpWindow():
         Create the new window to hold the help text
         '''
         self.helpwin = tk.Tk()
+        self.helpwin.configure(background = background)
         self.helpwin.title('Program Usage')
         self.help_text()
 
@@ -305,9 +349,11 @@ class HelpWindow():
         self.help_box = scrolledtext.ScrolledText(self.helpwin,
                                                   width=hscroll_w, height=hscroll_h,
                                                   wrap=tk.WORD, bd=5, relief=tk.RIDGE)
+        self.help_box.configure(background = entry_bg, foreground = text_color)
         self.help_box.grid(column=0, row=0, padx=8, pady=(0, 20))
         self.help_box.insert(1.0, help_text)
         self.help_button = tk.Button(self.helpwin, text='Close', command=self.helpwin.destroy)
+        self.help_button.configure(foreground = text_color, background = 'gray77')
         self.help_button.grid(column=0, row=1, padx=50, pady=(0, 15), sticky='WE')
 
 class AboutWindow():
@@ -319,6 +365,7 @@ class AboutWindow():
         Create the window to display the 'about' information
         '''
         self.aboutwin = tk.Tk()
+        self.aboutwin.configure(background = background)
         self.aboutwin.title('About')
         self.about_text()
 
@@ -328,29 +375,20 @@ class AboutWindow():
         file ABOUT, and read the contents into the text box
         '''
         width = 75
-        height = 20
+        height = 30
         self.about_box = tk.Text(self.aboutwin, width=width, height=height,
                                  wrap=tk.WORD, bd=5, relief=tk.RIDGE)
+        self.about_box.configure(background = entry_bg, foreground = text_color)
         self.about_box.grid(column=0, row=0, padx=8, pady=(0, 20))
         self.about_box.insert(1.0, about_text)
         self.about_button = tk.Button(self.aboutwin, text='Close', command=self.aboutwin.destroy)
+        self.about_button.configure(foreground = text_color, background = 'gray77')
         self.about_button.grid(column=0, row=1, padx=50, pady=(0, 15), sticky='WE')
 
 
 #=============
 #Start GUI
 #=============
-root = tk.Tk()
-width = int(root.winfo_screenwidth() / 2)
-height = int(root.winfo_screenheight() / 1.4)
-root.geometry('%sx%s' % (width, height))
-root.configure(background = 'gray83')
-root.rowconfigure(0, weight = 1)
-root.rowconfigure(1, weight = 1)
-root.columnconfigure(0, weight = 1)
-root.columnconfigure(1, weight = 3)
-style = ttk.Style()
-style.configure('TLabelframe', background = 'gray83')
-style.configure('TLabelframe.Label', background = 'gray83')
+
 main = MAIN(root)    # Create an instance of the MAIN class
 root.mainloop()
