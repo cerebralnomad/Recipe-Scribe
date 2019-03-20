@@ -223,6 +223,7 @@ class MAIN():
         file_menu.add_command(label='Save  Ctrl+s', command=self._save)
         file_menu.add_separator()
         file_menu.add_command(label='Quit  Ctrl+q', command=self._quit)
+        file_menu.configure(background = background, foreground = text_color)
         menu_bar.add_cascade(label='File', menu=file_menu)
 
         # Code for the cascading Help menu
@@ -230,6 +231,7 @@ class MAIN():
         help_menu.add_command(label='Program Help  Ctrl+h', command=HelpWindow)
         help_menu.add_separator()
         help_menu.add_command(label='About', command=AboutWindow)
+        help_menu.configure(background = background, foreground = text_color)
         menu_bar.add_cascade(label='Help', menu=help_menu)
 
         # Code for the individual menu buttons with no cascade
