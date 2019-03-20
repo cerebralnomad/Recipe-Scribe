@@ -9,8 +9,8 @@ Programmed in Python 3.6
 You can download the recipe_creator_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
 
-Otherwise either clone the repo or download the recipe_creator_source_files tarball.
-Make recipe_creator.py executable and run from the command line or make a program shortcut.
+Otherwise either clone the repo, make recipe_creator.py executable and run from the command line 
+or make a program shortcut.
 
 Requires tkinter to be installed. (apt install python-tk)
 
