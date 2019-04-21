@@ -12,8 +12,9 @@ No Windows exe, but you're welcome to make your own using the source files on wi
 Otherwise either clone the repo, make recipe_creator.py executable and run from the command line 
 or make a program shortcut.
 
-Requires tkinter to be installed. (apt install python-tk)
-
+Requires tkinter to be installed (apt install python-tk) if running from source.
+Tkinter doesn't have to be installed to run the executable.
+ 
 ## Usage
 
 On the first run of the program a file named CONFIG will be created in the directory where the program resides.
