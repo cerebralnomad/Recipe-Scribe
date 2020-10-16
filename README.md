@@ -37,35 +37,35 @@ Blank lines in the ingredients list will not have a bullet point.
 To omit the bullet point from a line of text in the ingredients list, begin the line with a period (.).
 The period will be removed automatically when saving the file.
 
-# Ingredients Example
-If you enter:
-ingredient 1
-ingredient 2
-ingredient 3
+### Ingredients Example
+If you enter:  
+ingredient 1  
+ingredient 2  
+ingredient 3  
 
-.For the Gravy
-gravy ingredient 1
-gravy ingredient 2
+.For the Gravy  
+gravy ingredient 1  
+gravy ingredient 2  
 
-The saved file will be:
-• ingredient 1
-• ingredient 2
-• ingredient 3
+The saved file will be:  
+• ingredient 1  
+• ingredient 2  
+• ingredient 3  
 
-For the Gravy
-• gravy ingredient 1
-• gravy ingredient 2
+For the Gravy  
+• gravy ingredient 1  
+• gravy ingredient 2  
 
 Unnumbered lines in the directions will be indented 3 spaces.
 
-# Directions example
-If you enter:
-1. This is the first step.
-This is another part of the first step
+### Directions example
+If you enter:  
+1. This is the first step.  
+This is another part of the first step  
 
-The saved file will read:
-1. This is the first step
-   This is another part of the first step
+The saved file will read:  
+1. This is the first step  
+   This is another part of the first step  
    
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
