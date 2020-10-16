@@ -5,3 +5,4 @@
 /src/CONFIG
 /src/__pycache__/
 /src/*test*.py
+/linux_executable
