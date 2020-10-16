@@ -60,12 +60,12 @@ Unnumbered lines in the directions will be indented 3 spaces.
 
 ### Directions example
 If you enter:  
-1. This is the first step.<br>
-This is another part of the first step  
+    1. This is the first step.<br>
+    This is another part of the first step  
 
 The saved file will read:  
-1. This is the first step<br>
- &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
+    1. This is the first step<br>
+       This is another part of the first step  
    
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
