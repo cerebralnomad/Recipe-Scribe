@@ -65,7 +65,7 @@ If you enter:
 
 The saved file will read:  
     1. This is the first step<br>
-    &nbsp;&nbsp;This is another part of the first step  
+    &nbsp;&nbsp;&nbsp;This is another part of the first step  
    
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
