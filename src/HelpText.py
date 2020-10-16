@@ -21,9 +21,23 @@ This is the default save name, but you can name it what you want.
 
 The ingredients list will be prepended with bullet points before
 each item. Only place one ingredient per line.
+A line is created when you press Enter, not if a long ingredient wraps
+to the next line.
+Blank lines in the ingredients will not have a bullet point.
+If you want to keep a line in the ingredients from having a bullet
+point, begin that line with a period (.).
+The period will be removed automatically when the file is saved.
 
-The directions will not be changed, so type them as you want
-them to appear.
+The directions will be automatically indented for all unnumbered lines.
+If you type:
+
+1. Preheat the oven to 350°F
+Then do this first thing.
+
+It will be saved as:
+
+1. Preheat the oven to 350°F
+   Then do this first thing. 
 
 CONFIG File Help
 ================

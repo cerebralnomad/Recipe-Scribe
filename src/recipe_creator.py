@@ -140,6 +140,9 @@ class MAIN():
         elif event.widget == self.ingredients:
             self.directions.focus_set()
             return 'break'
+        elif event.widget == self.directions:
+        	self.title_entered.focus_set()
+        	return 'break'
 
     def _save(self, event='s'):
         '''
@@ -159,7 +162,7 @@ class MAIN():
             file_name = recipe_name
         # split the ingredient list based on newline
         ingredients = self.ingredients.get(1.0, 'end-1c').split('\n')
-        directions = self.directions.get(1.0, 'end')
+        directions = self.directions.get(1.0, 'end-1c').split('\n')
 
         if save_path is None:
             file = filedialog.asksaveasfile(mode='w', initialfile=file_name,
@@ -174,11 +177,14 @@ class MAIN():
         file.write('\n\n')
         file.write('Ingredients')
         file.write('\n\n')
-        # Make sure blank lines in ingredients are not bullet pointed
+        # Make sure blank lines in ingredients or lines beginning with a . are not bullet pointed
         if use_bp =="True" or use_bp == "true":
             for i in ingredients:
                 line = i
-                if not re.match('\w', line): # using re import for regex search to see if line contains letters or numbers
+                if re.match('\.', line):
+                    newline = re.sub(r'\.', '', line)
+                    file.write(newline + '\n')                  
+                elif not re.match('\w', line): # using re import for regex search to see if line contains letters or numbers
                     file.write(line +'\n')
                 else:
                     file.write('• ' + line + '\n')  # Prepend each ingredient with a bullet point
@@ -189,7 +195,28 @@ class MAIN():
         file.write('\n')
         file.write('Directions')
         file.write('\n\n')
-        file.write(directions)
+        '''
+        Code to automatically indent any line not beginning with a number
+        Written as:
+        	1. First do this thing.
+        	Then do this further thing
+
+        Will be saved as:
+        	1. First do this thing.
+        	   Then do this further thing
+
+        This makes the directions look better without requiring manual indentation
+        However, step 10 and beyond will result in one space of indentation too few.
+        Few recipes have more than 9 steps normally. 
+        This issue may be looked at later.
+        '''
+        for i in directions:
+        	line = i
+        	if re.match('[1-9]', line):
+        		file.write(line + '\n')
+        	else:
+        		file.write('   ' + line + '\n')
+
         file.write("\n\n\n")
         file.close()
 
@@ -269,7 +296,7 @@ class MAIN():
         self.ingredients.vbar.configure(troughcolor = 'gray73', background = 'gray80')
         self.ingredients.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
         self.ingredients.bind("<Tab>", self.focus_next_widget)
-        tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line')
+        tt.create_ToolTip(self.ingredients, 'Enter ingredients here, one per line\nBegin line with a period to omit bullet point')
 
         # Add a scroll text box for directions
         self.directions = scrolledtext.ScrolledText(self.dir_frame, bd=5,\
@@ -277,6 +304,7 @@ class MAIN():
         self.directions.configure(background = entry_bg, foreground = entry_text)
         self.directions.vbar.configure(troughcolor = 'gray73', background = 'gray80')
         self.directions.grid(column=0, row=0, padx=8, pady=(0, 20), sticky=tk.N+tk.S+tk.E+tk.W)
+        self.directions.bind("<Tab>", self.focus_next_widget)
         tt.create_ToolTip(self.directions, 'Enter the recipe instructions here')
 
         self.title_entered.focus()  # Place cursor into the title entry box

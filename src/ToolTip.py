@@ -25,7 +25,7 @@ class ToolTip():
             font=("tahome", "8", "normal"))
         label.configure(foreground = 'black')
         label.pack(ipadx=1)
-        self.tip_window.after(1500, self.tip_window.destroy)
+        self.tip_window.after(2500, self.tip_window.destroy)
 
     def hide_tip(self):
         tw = self.tip_window
