@@ -27,8 +27,17 @@ The recipe title will be reformatted for use as the file name.
 It will be converted to all lower case and spaces will be changed to underscores.
 
 A bullet point will be added before each ingredient.
-Both of these features can be turned off by opening the CONFIG file in a text editor 
-and changing the relevant settings from True to False
+If you don't want bullet points before each ingredient you can disable them by 
+selecting that item on the Config menu and choosing False.  
+Re-enable them by changing it back to True. 
+
+If you don't want the recipe title automatically formatted for use as the filename,
+then select that option in the Config menu and choose False.  
+This will cause the program to use the recipe name as written for the filename, 
+including spaces and capital letters.
+
+Any changes to the configuration require you to restart the application
+for them to take effect, as the config file is read at program launch.
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of 
 another recipe.

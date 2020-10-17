@@ -31,11 +31,11 @@ changed to underscores.
 
 A bullet point will be added before each ingredient.
 If you don't want bullet points before each ingredient you can disable them by 
-selecting that item on the Config menu and choosing False.
+selecting that item on the Config menu and choosing False.  
 Re-enable them by changing it back to True. 
 
 If you don't want the recipe title automatically formatted for use as the filename,
-then select that option in the Config menu and choose False.
+then select that option in the Config menu and choose False.  
 This will cause the program to use the recipe name as written for the filename, 
 including spaces and capital letters.
 
