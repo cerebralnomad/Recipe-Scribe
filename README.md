@@ -17,15 +17,18 @@ or make a program shortcut.
 Requires tkinter to be installed from your distro repo if running from source.
 Tkinter doesn't have to be installed to run the executable.
 
-# TKinter installation
+### TKinter installation
 
 For Ubuntu and other Debian based distros:
+
 `sudo apt install python3-tk`
 
 For Fedora:
+
 `sudo dnf install python3-tkinter`
 
 For Arch:
+
 `sudo pacman -Sy tk`
  
 ## Usage
