@@ -105,8 +105,12 @@ Restart the program for the change to take effect.
 
 ## Notes
 Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
+
 Initial window size now calculated based on screen geometry.
+
 The entry boxes now scale properly when resizing the window.
+
+Use Ctrl+v to paste copied text, right click doesn't work.
 
 ## License
 
