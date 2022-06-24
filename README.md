@@ -15,7 +15,10 @@ Otherwise either clone the repo, make recipe_scribe.py executable and run from t
 or make a program shortcut.
 
 Requires tkinter to be installed from your distro repo if running from source.
+
 Tkinter doesn't have to be installed to run the executable.
+
+There is no requirements.txt file since aside from TKinter, there are no additional packages required to run the program from source.
 
 ### TKinter installation
 
@@ -95,6 +98,10 @@ The saved file will read:
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
+
+## Dark Mode
+The program will default to light mode. To switch to dark mode, select Use Dark Mode from the config menu and choose yes.
+Restart the program for the change to take effect.
 
 ## Notes
 Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
