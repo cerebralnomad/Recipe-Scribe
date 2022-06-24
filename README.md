@@ -14,8 +14,19 @@ No Windows exe, but you're welcome to make your own using the source files on wi
 Otherwise either clone the repo, make recipe_scribe.py executable and run from the command line 
 or make a program shortcut.
 
-Requires tkinter to be installed (apt install python-tk) if running from source.
+Requires tkinter to be installed from your distro repo if running from source.
 Tkinter doesn't have to be installed to run the executable.
+
+# TKinter installation
+
+For Ubuntu and other Debian based distros:
+`sudo apt install python3-tk`
+
+For Fedora:
+`sudo dnf install python3-tkinter`
+
+For Arch:
+`sudo pacman -Sy tk`
  
 ## Usage
 
