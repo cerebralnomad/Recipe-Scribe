@@ -4,6 +4,8 @@ Programmed in Python 3.6
 
 ![Screenshot](/screenshot/rc_main_window.png?raw=true "Screenshot")
 
+![Screenshot](/screenshot/rc_dark_mode.png?raw=true "Dark mode screenshot")
+
 ## Installation
 
 You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
