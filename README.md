@@ -1,4 +1,4 @@
-# gui_recipe_creator
+# Recipe Scribe
 A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
 Programmed in Python 3.6
 
@@ -6,10 +6,10 @@ Programmed in Python 3.6
 
 ## Installation
 
-You can download the recipe_creator_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
+You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
 
-Otherwise either clone the repo, make recipe_creator.py executable and run from the command line 
+Otherwise either clone the repo, make recipe_scribe.py executable and run from the command line 
 or make a program shortcut.
 
 Requires tkinter to be installed (apt install python-tk) if running from source.
@@ -81,10 +81,8 @@ After saving use File>New or Ctrl+n to clear the entry boxes for the creation of
 Program help can be found in the Menu
 
 ## Notes
-Earlier versions were found to problematic with dark themes on certain distros and with some resolutions.  
-Revisions were made that forces a color palette matching the screenshot above regardless of system theme and
-calculates initial window size based on screen geometry.
-
+Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
+Initial window size now calculated based on screen geometry.
 The entry boxes now scale properly when resizing the window.
 
 ## License
