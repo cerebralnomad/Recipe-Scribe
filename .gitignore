@@ -1,6 +1,5 @@
 # Ignore the tarballs of the source code and the executable
 
-*.tar.gz
 *.bak
 /src/CONFIG
 /src/__pycache__/
