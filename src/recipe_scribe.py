@@ -37,16 +37,26 @@ from AboutText import about_text
 root = tk.Tk()
 '''
 The next 4 Lines deal with the program icon that displays in the
-active window and the dock as well as allowing PyInstaller
-to reference the file properly.
-Executables created with Pyinstaller create a path for the program in /tmp
-when run. 
+active window and the dock when making the executable by allowing
+PyInstaller to reference the file properly.
+Executables created with Pyinstaller create a path for the program 
+in /tmp when run. 
 This breaks the relative path to the icon file.
+These lines must be commented out to run this file from the CLI
+Ony uncomment for the purpose of making a standalone executable with 
+Pyinstaller
 '''
-rootdir = path.dirname(__file__) # Get the Pyinstaller root path
-icon = path.join(rootdir, 'rc.png') # join the path to the icon file
-img = tk.PhotoImage(file=icon) # Set the program icon
-root.iconphoto(False, img) # Display the program icon
+#rootdir = path.dirname(__file__) # Get the Pyinstaller root path
+#icon = path.join(rootdir, 'rc.png') # join the path to the icon file
+#img = tk.PhotoImage(file=icon) # Set the program icon
+#root.iconphoto(False, img) # Display the program icon
+
+'''
+Comment the following two lines out before using Pyinstaller
+Uncomment when running this file directly from the CLI
+'''
+img = tk.PhotoImage(file='rc.png') 
+root.iconphoto(False, img)
 
 width = int(root.winfo_screenwidth() / 1.9)
 height = int(root.winfo_screenheight() / 1.2)
