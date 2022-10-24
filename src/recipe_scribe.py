@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 Recipe Scribe
-version 1.0
+version 1.1
 Basic no frills GUI Program for creating and saving recipes.
 Written in Python 3.6 and TKinter
  
@@ -35,6 +35,19 @@ from HelpText import help_text
 from AboutText import about_text
 
 root = tk.Tk()
+'''
+The next 4 Lines deal with the program icon that displays in the
+active window and the dock as well as allowing PyInstaller
+to reference the file properly.
+Executables created with Pyinstaller create a path for the program in /tmp
+when run. 
+This breaks the relative path to the icon file.
+'''
+rootdir = path.dirname(__file__) # Get the Pyinstaller root path
+icon = path.join(rootdir, 'rc.png') # join the path to the icon file
+img = tk.PhotoImage(file=icon) # Set the program icon
+root.iconphoto(False, img) # Display the program icon
+
 width = int(root.winfo_screenwidth() / 1.9)
 height = int(root.winfo_screenheight() / 1.2)
 root.geometry('%sx%s' % (width, height))
@@ -230,11 +243,14 @@ class MAIN():
         This issue may be looked at later.
         '''
         for i in directions:
-        	line = i
-        	if re.match('[1-9]', line):
-        		file.write(line + '\n')
-        	else:
-        		file.write('   ' + line + '\n')
+            line = i
+            if re.match('[1-9]', line):
+                file.write(line + '\n')
+            elif re.match('\.', line): # Do not indent lines beginning with a period
+                newline = re.sub(r'\.', '', line)
+                file.write(newline + '\n')
+            else:
+                file.write('   ' + line + '\n')
 
         file.write("\n\n\n")
         file.close()
