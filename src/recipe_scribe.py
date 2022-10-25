@@ -35,6 +35,30 @@ from HelpText import help_text
 from AboutText import about_text
 
 root = tk.Tk()
+
+'''
+The next 4 Lines deal with the program icon that displays in the
+active window and the dock when making the executable by allowing
+PyInstaller to reference the file properly.
+Executables created with Pyinstaller create a path for the program 
+in /tmp when run. 
+This breaks the relative path to the icon file.
+These lines must be commented out to run this file from the CLI
+Ony uncomment for the purpose of making a standalone executable with 
+Pyinstaller
+'''
+#rootdir = path.dirname(__file__) # Get the Pyinstaller root path
+#icon = path.join(rootdir, 'rc.png') # join the path to the icon file
+#img = tk.PhotoImage(file=icon) # Set the program icon
+#root.iconphoto(False, img) # Display the program icon
+
+'''
+Comment the following two lines out before using Pyinstaller
+Uncomment when running this file directly from the CLI
+'''
+img = tk.PhotoImage(file='rc.png')
+root.iconphoto(False, img)
+
 width = int(root.winfo_screenwidth() / 1.9)
 height = int(root.winfo_screenheight() / 1.2)
 root.geometry('%sx%s' % (width, height))
@@ -228,13 +252,20 @@ class MAIN():
         However, step 10 and beyond will result in one space of indentation too many.
         Few recipes have more than 9 steps normally. 
         This issue may be looked at later.
+
+        Added v1.1: Lines in Directions beginning with a period will not be indented.
+        This will allow for the inclusion of notes or links without having them 
+        indented in the saved file.
         '''
         for i in directions:
-        	line = i
-        	if re.match('[1-9]', line):
-        		file.write(line + '\n')
-        	else:
-        		file.write('   ' + line + '\n')
+            line = i
+            if re.match('[1-9]', line):
+                file.write(line + '\n')
+            elif re.match('\.', line): # Do not indent lines beginning with a period
+                newline = re.sub(r'\.', '', line) # Remove the . before writing
+                file.write(newline + '\n')
+            else:
+                file.write('   ' + line + '\n')
 
         file.write("\n\n\n")
         file.close()
