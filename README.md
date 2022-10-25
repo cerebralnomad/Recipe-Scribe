@@ -14,25 +14,8 @@ No Windows exe, but you're welcome to make your own using the source files on wi
 Otherwise either clone the repo, make recipe_scribe.py executable and run from the command line 
 or make a program shortcut.
 
-Requires tkinter to be installed from your distro repo if running from source.
-
+Requires tkinter to be installed (apt install python-tk) if running from source.
 Tkinter doesn't have to be installed to run the executable.
-
-There is no requirements.txt file since aside from TKinter, there are no additional packages required to run the program from source.
-
-### TKinter installation
-
-For Ubuntu and other Debian based distros:
-
-`sudo apt install python3-tk`
-
-For Fedora:
-
-`sudo dnf install python3-tkinter`
-
-For Arch:
-
-`sudo pacman -Sy tk`
  
 ## Usage
 
@@ -99,18 +82,10 @@ The saved file will read:
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
-## Dark Mode
-The program will default to light mode. To switch to dark mode, select Use Dark Mode from the config menu and choose yes.
-Restart the program for the change to take effect.
-
 ## Notes
 Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
-
 Initial window size now calculated based on screen geometry.
-
 The entry boxes now scale properly when resizing the window.
-
-Use Ctrl+v to paste copied text, right click doesn't work.
 
 ## License
 
