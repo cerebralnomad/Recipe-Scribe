@@ -11,10 +11,20 @@ Programmed in Python 3.6
 You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
 
-Otherwise either clone the repo, make recipe_scribe.py executable and run from the command line 
-or make a program shortcut.
+Otherwise either clone the repo, or download the zip of the files.
+Extract the .zip and move the folder wherever you want to keep it. Make recipe_scribe.py executable and run from the 
+command line or make a program shortcut.
+No installation is required, all the files are included to run from the extracted folder.
 
-Requires tkinter to be installed (apt install python-tk) if running from source.
+Requires tkinter to be installed if running from source.
+
+#### Installing TKinter
+Debian based distros:
+'''
+sudo apt install python3-pip
+pip3 install tkinter
+'''
+
 Tkinter doesn't have to be installed to run the executable.
  
 ## Usage
