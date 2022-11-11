@@ -19,11 +19,21 @@ No installation is required, all the files are included to run from the extracte
 Requires tkinter to be installed if running from source.
 
 #### Installing TKinter
-Debian based distros:
-'''
+Debian/Ubuntu:
+```
 sudo apt install python3-pip
-pip3 install tkinter
-'''
+pip install tkinter
+```
+Fedora:
+```
+sudo dnf install python3-pip
+pip install tkinter
+```
+Arch:
+```
+sudo pacman -S python-pip
+pip install tkinter
+```
 
 Tkinter doesn't have to be installed to run the executable.
  

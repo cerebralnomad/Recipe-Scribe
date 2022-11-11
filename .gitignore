@@ -1,6 +1,7 @@
 # Ignore the tarballs of the source code and the executable
 
 *.bak
+*.swp
 /src/CONFIG
 /src/__pycache__/
 /src/*test*.py
