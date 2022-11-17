@@ -2,9 +2,11 @@
 A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
 Programmed in Python 3.6
 
-![Screenshot](/screenshot/rc_main_window.png?raw=true "Screenshot")
+![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
 
-![Screenshot](/screenshot/rc_dark_mode.png?raw=true "Dark mode screenshot")
+![Screenshot](/screenshot/rs_dark_mode.png?raw=true "Dark mode screenshot")
+
+![Screenshot](/screenshot/rs_search_window.png?raw=true "Search Window Screenshot")
 
 ## Installation
 
@@ -98,20 +100,22 @@ If you enter:
     1. This is the first step.<br>
     This is another part of the first step  
 
-    .Link to the recipe or youtube video on the internet
+.Link to the recipe or youtube video on the internet
 
 The saved file will read:  
     1. This is the first step<br>
     &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
 
-    Link to the recipe or youtube video
+Link to the recipe or youtube video
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
 ## Notes
-Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
-Initial window size now calculated based on screen geometry. Can be set to start fullscreen in the config menu.
+Now supporting light and dark modes.
+Change to dark mode using the config menu and restart the application.
+Initial window size now calculated based on screen geometry.
+Can be set to start fullscreen in the config menu.
 The entry boxes now scale properly when resizing the window.
 Added the search feature with editing capabilities.
 
