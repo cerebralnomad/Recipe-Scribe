@@ -9,6 +9,7 @@ It should be the root folder of your recipe directory.
 If this is not set it will default to the folder the program resides
 in and the first save of every session will result in needless navigation 
 to your preferred save location.
+It is also required to be set in order to use the search function.
 This only needs to be set once, and it will remain the default
 every time you run the program, but can be changed at any time.
 
@@ -39,6 +40,11 @@ It will be saved as:
 1. Preheat the oven to 350°F
    Then do this first thing. 
 
+To prevent an unnumbered line from being indented begin the line with
+a period (.).
+This is useful for things like recipe notes.
+The period will be removed when the file is saved.
+
 CONFIG File Help
 ================
 
@@ -55,19 +61,56 @@ then select that option in the menu and choose False.
 This will cause the program to use the recipe name as written for the filename, 
 including spaces and capital letters.
 
-Any changes to the configuration require you to restart the application
-for them to take effect, as the config file is read at program launch.
+Use the Config menu to choose dark or light theme, and whether you want the
+program to start maximized to full screen or not.
 
-Menu Help
-=========
+Changing the bullet points, file formatting, or dark mode options will restart
+the program automatically so the changes are applied immediately.
+Setting the default path gives you the option to restart to apply the change.
 
-File > New - clears all fields for entry of another recipe
-File > Save - choose the save location and save the file
-File > Exit - exit the program
+Recipe Search
+=============
+
+You must have a default save path set to use the recipe search.
+It uses this path as the location to perform the search.
+
+Type the term you wish to search for in the entry field. Then click either the
+Title Search or Ingredient Search button.
+Title Search looks for the search term in all the recipe titles.
+Ingredient search searches the contents of every recipe file for the search term.
+Searches are not case sensitive.
+
+Single word searches work best and title searches only support single words.
+When searching for two words, results will include all files which contain both words.
+This can greatly increase results in some cases.
+For instance searching for red pepper, would return all the recipes that include
+red pepper flakes but also recipes that call for red cabbage and black pepper, as
+well as any that use red bell pepper or red wine and jalapeno peppers.
+Searching for more than two words is not supported and will return an error
+message as the results.
+
+The list of filenames returned by the search will appear in the left side panel.
+Clicking on a filename will display the recipe in the right side panel.
+The recipe can be edited from within the program if you wish. After making any
+edits, click the Save Edits button to save the changes.
+The original file will be immediately overwritten with the edited version.
+
+The Save button is disabled until you click in the box where the recipe
+is displayed.
+
+Menu Bar Help
+=============
+
+File > New (Ctrl+N) - clears all fields for entry of another recipe
+File > Save (Ctrl+S) - choose the save location and save the file
+File > Exit (Ctrl+Q) - exit the program
 
 About - pops up the About message with program and license details.
 
 Config - set the default save path and other program options.
 
 Help - Show this help screen
+
+Search Recipes - Switch to the recipe search function
+Create New Recipe (Search page only) - Return to the recipe creation page.
 '''
