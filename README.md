@@ -44,6 +44,7 @@ Click Config in the menu to set your default save path. This will be where the s
 should be the root directory of your recipe folder. 
 Not setting this will cause the save dialog to default to the program folder and require unnecessary navigation to
 the desired directory to save the first file each session.
+This is required to be set for the search function to work.
 
 Fill out the recipe title, the ingredients, and the directions in the main window.
 Use File>Save or Ctrl+s to save. 
@@ -53,7 +54,7 @@ changed to underscores.
 
 A bullet point will be added before each ingredient.
 If you don't want bullet points before each ingredient you can disable them by 
-selecting that item on the Config menu and choosing False.  
+selecting that item on the Config menu and choosing False.
 Re-enable them by changing it back to True. 
 
 If you don't want the recipe title automatically formatted for use as the filename,
@@ -61,12 +62,15 @@ then select that option in the Config menu and choose False.
 This will cause the program to use the recipe name as written for the filename, 
 including spaces and capital letters.
 
-Any changes to the configuration require you to restart the application
-for them to take effect, as the config file is read at program launch.
+Any changes to the configuration will trigger a program restart so they take effect immediately.
 
 Blank lines in the ingredients list will not have a bullet point.
 To omit the bullet point from a line of text in the ingredients list, begin the line with a period (.).
 The period will be removed automatically when saving the file.
+
+Likewise, any line in the Directions beginning withe a period will not be indented.
+This allows you to include Notes or Links in the directions without having them indented,
+making the saved file look better.
 
 ### Ingredients Example
 If you enter:  
@@ -94,18 +98,22 @@ If you enter:
     1. This is the first step.<br>
     This is another part of the first step  
 
+    .Link to the recipe or youtube video on the internet
+
 The saved file will read:  
     1. This is the first step<br>
     &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
-   
+
+    Link to the recipe or youtube video
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
 ## Notes
 Now supporting light and dark modes. Change to dark mode using the config menu and restart the application.
-Initial window size now calculated based on screen geometry.
+Initial window size now calculated based on screen geometry. Can be set to start fullscreen in the config menu.
 The entry boxes now scale properly when resizing the window.
+Added the search feature with editing capabilities.
 
 ## License
 
