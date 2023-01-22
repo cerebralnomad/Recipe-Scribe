@@ -38,6 +38,13 @@ pip install tkinter
 ```
 
 Tkinter doesn't have to be installed to run the executable.
+
+### AppImage
+
+To use the AppImage, download that file and make it executable.
+It is recommended you place the AppImage in it's own folder such as ~/Recipe-Scribe, as it will create it's own 
+CONFIG file on first use and place it in the folder where the AppImage is run from.
+Currently the AppImage has only been tested on Ubuntu 22.04. I will test on other distros soon.
  
 ## Usage
 
