@@ -77,7 +77,7 @@ Blank lines in the ingredients list will not have a bullet point.
 To omit the bullet point from a line of text in the ingredients list, begin the line with a period (.).
 The period will be removed automatically when saving the file.
 
-Likewise, any line in the Directions beginning withe a period will not be indented.
+Likewise, any line in the Directions beginning with a period will not be indented.
 This allows you to include Notes or Links in the directions without having them indented,
 making the saved file look better.
 
@@ -100,7 +100,7 @@ For the Gravy
 • gravy ingredient 1  
 • gravy ingredient 2  
 
-Unnumbered lines in the directions will be indented 3 spaces.
+Unnumbered lines in the directions will be indented 3 spaces unless preceeded by a period.
 
 ### Directions example
 If you enter:  
@@ -117,6 +117,26 @@ Link to the recipe or youtube video
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
+
+### Search Function Usage
+You must have a default save path set to use the recipe search.  
+It uses this path as the location to perform the search.
+
+To search your recipies from the program, click Search Recipies in the menubar.  
+Type your search term in the search box and click either the Ingredient Search or Title Search button.  
+The Title Search will look for the search term in the titles of all your recipes.  
+The Ingredient Search will search the contents of every recipe file in your collection for the search term.  
+Searches are not case sensitive.
+
+The search results will display in the left hand pane. Click on a result and the recipe will be displayed in the right pane.  
+You can edit the recipe from the program if you need to. Simply make your changes and click the Save button.  
+Clicking the Save button will immediately overwrite the existing file with the contents of the window displaying the recipe.  
+There is no confirmation dialog.
+
+Single word searches work best and title searches only support single words.  
+When searching for two words, results will include all files which contain both words.  
+This can greatly increase results in some cases.  
+Searching for more than two words is not supported and will return an error message as the results.
 
 ## Notes
 Now supporting light and dark modes.
