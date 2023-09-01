@@ -2,6 +2,10 @@
 A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
 Programmed in Python 3.6
 
+Version 2.0 is considered feature complete at this time. I don't forsee any need for further development for the 
+forseeable future.
+Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)
+ 
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
 
 ![Screenshot](/screenshot/rs_dark_mode.png?raw=true "Dark mode screenshot")
