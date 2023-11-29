@@ -1,6 +1,7 @@
 # Recipe Scribe
 A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
-Programmed in Python 3.6
+Includes a built in search to find recipes in your collection by name or partial name or ingredient.
+Allows editing existing recipes from within the app without needing to open in a text editor.
 
 Version 2.0 is considered feature complete at this time. I don't forsee any need for further development for the 
 forseeable future.
@@ -23,6 +24,7 @@ command line or make a program shortcut.
 No installation is required, all the files are included to run from the extracted folder.
 
 Requires tkinter to be installed if running from source.
+Tkinter is bundled with the executable and the AppImage so a seperate installation on the system is not necessary.
 
 #### Installing TKinter
 Debian/Ubuntu:
