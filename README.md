@@ -116,18 +116,26 @@ The saved file will be:
 Unnumbered lines in the directions will be indented 3 spaces unless preceeded by a period.
 
 ### Directions example
-If you enter:  
-> \1. This is the first step.<br>
-> This is another part of the first step  
->
-> .Link to the recipe or youtube video on the internet
->
-The saved file will read:  
-> \1. This is the first step<br>
-> &nbsp;&nbsp;&nbsp;This is another part of the first step  
->
-> Link to the recipe or youtube video
+If you enter: 
+```
+1. This is the first step.  
+This is another part of the first step
 
+2. This is the second step.
+A continuation of the second step.
+
+.Link to the recipe or youtube video
+```
+The saved file will read:  
+```
+1. This is the first step<br>
+   This is another part of the first step
+
+2. This is the second step.
+   A continuation of the second step.
+
+Link to the recipe or youtube video
+```
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
 
