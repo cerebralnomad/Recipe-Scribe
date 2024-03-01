@@ -117,14 +117,14 @@ Unnumbered lines in the directions will be indented 3 spaces unless preceeded by
 
 ### Directions example
 If you enter:  
->    1. This is the first step.<br>
->    This is another part of the first step  
+> 1. This is the first step.<br>
+> This is another part of the first step  
 >
 > .Link to the recipe or youtube video on the internet
 >
-> The saved file will read:  
->    1. This is the first step<br>
->    &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
+The saved file will read:  
+> 1. This is the first step<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
 >
 > Link to the recipe or youtube video
 
