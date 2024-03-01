@@ -96,37 +96,37 @@ making the saved file look better.
 
 ### Ingredients Example
 If you enter:  
-ingredient 1  
-ingredient 2  
-ingredient 3  
-
-.For the Gravy  
-gravy ingredient 1  
-gravy ingredient 2  
+> ingredient 1  
+> ingredient 2  
+> ingredient 3  
+>
+> .For the Gravy  
+> gravy ingredient 1  
+> gravy ingredient 2  
 
 The saved file will be:  
-• ingredient 1  
-• ingredient 2  
-• ingredient 3  
-
-For the Gravy  
-• gravy ingredient 1  
-• gravy ingredient 2  
+> • ingredient 1  
+> • ingredient 2  
+> • ingredient 3  
+>
+> For the Gravy  
+> • gravy ingredient 1  
+> • gravy ingredient 2  
 
 Unnumbered lines in the directions will be indented 3 spaces unless preceeded by a period.
 
 ### Directions example
 If you enter:  
-    1. This is the first step.<br>
-    This is another part of the first step  
-
-.Link to the recipe or youtube video on the internet
-
-The saved file will read:  
-    1. This is the first step<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
-
-Link to the recipe or youtube video
+>    1. This is the first step.<br>
+>    This is another part of the first step  
+>
+> .Link to the recipe or youtube video on the internet
+>
+> The saved file will read:  
+>    1. This is the first step<br>
+>    &nbsp;&nbsp;&nbsp;&nbsp;This is another part of the first step  
+>
+> Link to the recipe or youtube video
 
 After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
 Program help can be found in the Menu
