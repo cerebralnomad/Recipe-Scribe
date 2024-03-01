@@ -1,7 +1,12 @@
 # Recipe Scribe
-A no frills recipe program. Creates recipe files in text format without a database and saves to the specified location.  
+A no frills recipe program. Creates recipes as text files without a database and saves to your specified location.  
 Includes a built in search to find recipes in your collection by name or partial name or ingredient.
 Allows editing existing recipes from within the app without needing to open in a text editor.
+
+* Automatically adds bullet points to ingredients (configurable)
+* Automatic indentation of directiond (configurable)
+* Automatic formatting of the title to the filename (configurable)
+* Light or Dark mode
 
 Version 2.0 is considered feature complete at this time. I don't forsee any need for further development for the 
 forseeable future.
@@ -145,12 +150,12 @@ This can greatly increase results in some cases.
 Searching for more than two words is not supported and will return an error message as the results.
 
 ## Notes
-Now supporting light and dark modes.
-Change to dark mode using the config menu and restart the application.
-Initial window size now calculated based on screen geometry.
-Can be set to start fullscreen in the config menu.
-The entry boxes now scale properly when resizing the window.
-Added the search feature with editing capabilities.
+Now supporting light and dark modes.<br>
+Change to dark mode using the config menu.<br>
+Initial window size now calculated based on screen geometry.<br>
+Can be set to start fullscreen in the config menu.<br>
+The entry boxes now scale properly when resizing the window.<br>
+Added the search feature with editing capabilities.<br>
 
 ## License
 
