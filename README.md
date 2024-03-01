@@ -1,16 +1,18 @@
 # Recipe Scribe
-A no frills recipe program. Creates recipes as text files without a database and saves to your specified location.  
-Includes a built in search to find recipes in your collection by name or partial name or ingredient.
+A no frills recipe program. Creates recipes as text files without a database and saves to your specified location.<br>  
+Includes a built in search to find recipes in your collection by name or partial name or ingredient.<br>
 Allows editing existing recipes from within the app without needing to open in a text editor.
 
 * Automatically adds bullet points to ingredients (configurable)
-* Automatic indentation of directiond (configurable)
+* Automatic indentation of directions (configurable)
 * Automatic formatting of the title to the filename (configurable)
 * Light or Dark mode
 
-Version 2.0 is considered feature complete at this time. I don't forsee any need for further development for the 
-forseeable future.
-Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)
+Version 2.0 is considered feature complete at this time. <br>
+I don't plan any further development for the forseeable future, barring any bugs found.<br>
+Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)<br>
+A Flatpak is currently in the works.<br>
+There might be a snap later.<br>
  
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
 
