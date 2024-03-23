@@ -61,7 +61,7 @@ Currently the AppImage has only been tested on Ubuntu 22.04. I will test on othe
  
 ## Usage
 
-On the first run of the program a file named CONFIG will be created in the directory where the program resides.
+On the first run of the program a file named recipe_scribe.conf will be created in ~/.config.
 Click Config in the menu to set your default save path. This will be where the save dialog starts when saving a file and 
 should be the root directory of your recipe folder. 
 Not setting this will cause the save dialog to default to the program folder and require unnecessary navigation to
