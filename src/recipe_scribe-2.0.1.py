@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 '''
-All features working as intended.
-Archiving at this point to preserve progress.
+Before running pyinstaller uncomment lines 119-122
+Comment lines 131-132
 
-Added program icon for window and dock
-Need to test on Zeus before making the executable
+Version 2.0.1
+Fixed the location of the config to ~/.config/recipe_scribe.conf
+instead of in the program folder
 
 '''
 
@@ -111,10 +112,25 @@ else:
 root = tk.Tk()
 
 '''
-The next two lines set the icon to be used in the program window
-and the dock.
-When running pyinstaller the icon file must be in the same folder
-as the script.
+The next 4 Lines deal with the program icon that displays in the
+active window and the dock when making the executable by allowing
+PyInstaller to reference the file properly.
+Executables created with Pyinstaller create a path for the program
+in /tmp when run.
+This breaks the relative path to the icon file.
+These lines must be commented out to run this file from the CLI
+Ony uncomment for the purpose of making a standalone executable with
+Pyinstaller
+'''
+#rootdir = path.dirname(__file__) # Get the Pyinstaller root path
+#icon = path.join(rootdir, 'rc.png') # join the path to the icon file
+#img = tk.PhotoImage(file=icon) # Set the program icon
+#root.iconphoto(False, img) # Display the program icon
+
+'''
+Comment the following two lines out before using Pyinstaller
+Uncomment when running this file directly from the CLI
+
 '''
 
 img = tk.PhotoImage(file='rc.png')
