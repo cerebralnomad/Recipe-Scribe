@@ -36,13 +36,12 @@ The optionxform setting preserves capitialization in those comments
 '''
 config = configparser.ConfigParser(comment_prefixes='/', allow_no_value=True)
 config.optionxform = str
-config_path = os.path.expanduser('~/.config/recipe_scribe.conf')
 
 # Set the variables from the config file if it exists
 # If not create it with the default values
 
-if path.exists(config_path):
-    config.read(config_path)
+if path.exists("CONFIG"):
+    config.read("CONFIG")
     save_path = config.get('DefaultSavePath', 'save_path')
     use_bp = config.get('UseBulletPoints', 'use_bp')
     fn_format = config.get('FormatFileName', 'fn_format')
@@ -75,7 +74,7 @@ else:
     config.set("FormatFileName", "fn_format", "True")
     config.set("UseDarkMode", "dark_mode", "False")
     config.set("StartFullscreen", "fullscreen", "False")
-    with open(config_path, "a") as configfile:
+    with open("CONFIG", "a") as configfile:
         config.write(configfile) 
 
 # Set the color theme for the GUI to avoid ocnflicts with
@@ -130,8 +129,8 @@ Pyinstaller
 Comment the following two lines out before using Pyinstaller
 Uncomment when running this file directly from the CLI
 '''
-#img = tk.PhotoImage(file='rc.png')
-#root.iconphoto(False, img)
+img = tk.PhotoImage(file='rc.png')
+root.iconphoto(False, img)
 
 if fullscreen == 'True' or fullscreen == 'true':
     root.attributes('-zoomed', True)
@@ -523,7 +522,7 @@ class DefaultPath():
         '''
         path = filedialog.askdirectory()
         config.set('DefaultSavePath', 'save_path', path)
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         self.msgbox()
 
@@ -578,7 +577,7 @@ class SetBulletPoints():
         # Set the use_bp setting in the CONFIG file to True
 
         config.set("UseBulletPoints", "use_bp", "True")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'yes'
         self.bpwin.destroy()
@@ -591,7 +590,7 @@ class SetBulletPoints():
         # Set the use_bp setting in the CONFIG file to False
 
         config.set("UseBulletPoints", "use_bp", "False")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'no'
         self.bpwin.destroy()
@@ -607,7 +606,7 @@ class SetBulletPoints():
             bp_info = tk.Toplevel(root)
             bp_info.title('Bullet point configuration set')
             message = ttk.Label(bp_info,
-                text = 'Bullet points will be used in the ingredients list')
+                text = 'Bullet points will be used in the ingredients list\nPlease restart the application')
             message.grid(column=1, row=1, padx=10, pady=(25, 25), sticky='WE')
             close = ttk.Button(bp_info, text = 'Ok', command=lambda: bp_info.destroy())
             close.grid(column=1, row=2, padx=10, pady=(0, 10), sticky='WE')
@@ -616,7 +615,7 @@ class SetBulletPoints():
             bp_info = tk.Toplevel(root)
             bp_info.title('Bullet point configuration set')
             message = ttk.Label(bp_info,
-                text = 'Bullet points will not be used in the ingredients list')
+                text = 'Bullet points will not be used in the ingredients list\nPlease restart the application')
             message.grid(column=1, row=1, padx=10, pady=(25, 25), sticky='WE')
             close = ttk.Button(bp_info, text = 'Ok', command=lambda: bp_info.destroy())
             close.grid(column=1, row=2, padx=10, pady=(0, 10), sticky='WE')
@@ -660,7 +659,7 @@ class FilenameFormat():
         # Set the fn_format setting in the CONFIG file to True
 
         config.set("FormatFileName", "fn_format", "True")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'yes'
         self.fnfwin.destroy()
@@ -673,7 +672,7 @@ class FilenameFormat():
         # Set the fn_format setting in the CONFIG file to False
 
         config.set("FormatFileName", "fn_format", "False")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'no'
         self.fnfwin.destroy()
@@ -715,7 +714,7 @@ class UseDarkMode():
         # Set the dark_mode setting in the CONFIG file to True
 
         config.set("UseDarkMode", "dark_mode", "True")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'yes'
         self.dmwin.destroy()
@@ -727,7 +726,7 @@ class UseDarkMode():
         # Set the dark_mode setting in the CONFIG file to False
 
         config.set("UseDarkMode", "dark_mode", "False")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'no'
         self.dmwin.destroy()
@@ -770,7 +769,7 @@ class StartFullScreen():
         # Set the fullscreen setting in the CONFIG file to True
 
         config.set("StartFullscreen", "fullscreen", "True")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'yes'
         self.fswin.destroy()
@@ -781,7 +780,7 @@ class StartFullScreen():
         # Set the fullscreen setting in the CONFIG file to False
 
         config.set("StartFullscreen", "fullscreen", "False")
-        with open(config_path, 'w+') as configfile:
+        with open('CONFIG', 'w+') as configfile:
             config.write(configfile)
         choice = 'no'
         self.fswin.destroy()
