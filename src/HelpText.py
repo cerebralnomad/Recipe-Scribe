@@ -48,7 +48,7 @@ The period will be removed when the file is saved.
 CONFIG File Help
 ================
 
-On the first launch a file named CONFIG will be created in the program directory.
+On the first launch a file named recipe_scribe.conf will be created in ~/.config.
 The [DefaultSavePath] category is set from the GUI when you click Config in 
 the menu. The default at creation is None.
 

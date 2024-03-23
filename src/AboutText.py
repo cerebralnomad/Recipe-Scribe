@@ -1,12 +1,12 @@
 
 about_text = '''
 Recipe Creator
-version 2.0
+version 2.0.1
 
 Source Files on GitHub
 https://github.com/cerebralnomad/gui_recipe_creator
  
-Copyright (C) 2019 Clay Davenport
+Copyright (C) 2024 Clay Davenport
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
