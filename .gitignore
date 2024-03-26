@@ -1,5 +1,5 @@
-# Ignore the tarballs of the source code and the executable
-
+/Archive
+packaging_notes.txt
 *.bak
 *.swp
 /src/CONFIG

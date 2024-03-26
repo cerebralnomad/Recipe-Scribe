@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
-Before running pyinstaller uncomment lines 119-122
-Comment lines 131-132
+Before running pyinstaller uncomment lines 133-136
+Comment lines 144-145
 
 Version 2.0.1
 Fixed the location of the config to ~/.config/recipe_scribe.conf
@@ -26,7 +26,15 @@ import ToolTip as tt
 from HelpText import help_text
 from AboutText import about_text
 
+# Uncomment for building AppImage
+# basepath = os.path.dirname(sys.argv[0])
+# icon_loc = os.path.join(basepath, "rc.png")
 
+# Uncomment if using this file for Flatpak source  tarball
+# icon_loc = '/app/share/icons/hicolor/256x256/apps/com.cerebralnomad.recipescribe.png'
+
+#Comment out to build AppImage or Flatpak
+icon_loc = 'rc.png'
 
 '''
 ConfigParser options comment prefixes and allow no value
@@ -133,7 +141,7 @@ Uncomment when running this file directly from the CLI
 
 '''
 
-img = tk.PhotoImage(file='rc.png')
+img = tk.PhotoImage(file=icon_loc)
 root.iconphoto(False, img)
 
 if fullscreen == 'True' or fullscreen == 'true':
