@@ -36,18 +36,20 @@ Tkinter is bundled with the executable and the AppImage so a seperate installati
 #### Installing TKinter
 Debian/Ubuntu:
 ```
-sudo apt install python3-pip
-pip install tkinter
+sudo apt-get install python3-tk
 ```
 Fedora:
 ```
-sudo dnf install python3-pip
-pip install tkinter
+sudo dnf install python3-tkinter 
 ```
 Arch:
 ```
-sudo pacman -S python-pip
-pip install tkinter
+sudo pacman -S tk
+```
+
+CentOS, RedHat:
+```
+sudo yum install -y tkinter tk-devel
 ```
 
 Tkinter doesn't have to be installed to run the executable.
