@@ -25,7 +25,7 @@ There might be a snap later.<br>
 You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
 
-Otherwise either clone the repo, or download the zip of the files.
+Otherwise download the zip of the files from [https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v2.0.1-stable/recipe_scribe_2.0.1_source_files.tar.gz](https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v2.0.1-stable/recipe_scribe_2.0.1_source_files.tar.gz).
 Extract the .zip and move the folder wherever you want to keep it. Make recipe_scribe.py executable and run from the 
 command line or make a program shortcut.
 No installation is required, all the files are included to run from the extracted folder.
