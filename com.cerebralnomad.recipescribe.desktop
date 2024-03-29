@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+
+Name=RecipeScribe
+Comment=A GUI program for writing your recipes
+Categories=Utility;FileTools;
+
+Icon=com.cerebralnomad.recipescribe
+Exec=/app/bin/recipe_scribe-2.0.1.py
+Terminal=false
