@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.cerebralnomad.recipescribe</id>
+  <content_rating type="oars-1.0" />
+
+  <name>recipescribe</name>
+  <summary>A program for writing recipes</summary>
+  
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+
+  <developer id="com.github.cerebralnomad">
+          <name>Recipe Scribe</name>
+  </developer>
+
+  <url type="homepage">https://github.com/cerebralnomad/Recipe-Scribe</url>
+  <url type="bugtracker">https://github.com/cerebralnomad/Recipe-Scribe/issues</url>
+
+  <description>
+    <p>
+        A no frills recipe program. Creates recipe files in text file format without a database 
+        and saves to your specified location. 
+        Includes a built in search to find recipes in your collection by partial name 
+        or ingredient. 
+        Allows editing existing recipes from within the app without needing to open in a 
+        text editor.
+        Help menu details program usage.
+    </p>
+    <ul>
+            <li>Automatically adds bullet points to ingredients (configurable)</li>
+            <li>Automatic indentation of directions (configurable)</li>
+            <li>Automatic formatting of the title to the filename (configurable)</li>
+            <li>Light or Dark mode</li>
+    </ul>
+  </description>
+
+  <releases>
+    <release version="2.0.1" date="2024-03-23">
+    <url type="details">https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable</url>
+      <description>
+        <p>Recipe Scribe v2.0.1</p>
+          <ul>
+            <li>Set the configuration file to be located at ~/.config/recipe_scribe.conf instead of the program folder.
+                    This prevents the Flatpak from creating orphaned config files when launched from different places in the file system.</li>
+          </ul>
+           
+        <p>Recipe Scribe v2.0 Stable</p>
+          <ul>
+            <li>Added new search feature. Recipes can be searched and edited from within the program</li>
+            <li>Configuration changes such as dark mode or using bullet points are effective immediately program restart no longer required</li>
+            <li>Added program icon to the dock or taskbar when the program is running</li>        
+          </ul>
+      </description>
+    </release>
+  </releases>
+
+  <provides>
+    <binary>recipe_scribe-2.0.1</binary>
+  </provides>
+
+  <launchable type="desktop-id">com.cerebralnomad.recipescribe.desktop</launchable>
+  <icon type="stock">com.cerebralnomad.recipescribe</icon>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_main_window.png</image>
+      <caption>Main window in light mode</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_search_window.png</image>
+      <caption>Recipe search panel</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_dark_mode.png</image>
+      <caption>Main window in dark mode</caption>
+    </screenshot>
+  </screenshots>
+  
+  <icon type="stock">rc</icon>
+  
+  <categories>
+    <category>Utility</category>
+  </categories>
+  
+</component>
