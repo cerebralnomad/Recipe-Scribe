@@ -3,7 +3,7 @@
   <id>com.cerebralnomad.recipescribe</id>
   <content_rating type="oars-1.0" />
 
-  <name>recipescribe</name>
+  <name>Recipe Scribe</name>
   <summary>A program for writing recipes</summary>
   
   <metadata_license>CC0-1.0</metadata_license>
