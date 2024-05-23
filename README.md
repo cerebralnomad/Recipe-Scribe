@@ -13,9 +13,8 @@ I don't plan any further development for the forseeable future, barring any bugs
 Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)<br>
 A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
 There might be a snap later.<br>
-<center>
+
 ![Flathub Icon](/screenshot/flathub_icon.png?raw=true "Flathub Icon")
-</center><br>
  
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
 
