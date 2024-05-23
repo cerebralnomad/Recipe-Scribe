@@ -10,20 +10,18 @@ Allows editing existing recipes from within the app without needing to open in a
 
 Version 2.0 is considered feature complete at this time. <br>
 I don't plan any further development for the forseeable future, barring any bugs found.<br>
-Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)<br>
+Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable)<br>
 A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
 There might be a snap later.<br>
 
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
  
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
-
 ![Screenshot](/screenshot/rs_dark_mode.png?raw=true "Dark mode screenshot")
-
 ![Screenshot](/screenshot/rs_search_window.png?raw=true "Search Window Screenshot")
 
 ## Installation
-
+#### Flatpak
 The simplest and recommended method to run the program is from the Flatpak.  
 If you haven't used Flatpaks, you may need to install it, at least on Ubuntu.
 ```
@@ -41,44 +39,19 @@ Or from Flathub using the link below:
 
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 
-You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
-No Windows exe, but you're welcome to make your own using the source files on windows.
+#### AppImage
+Download the Appimage from the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
+Extract the AppImage wherever you want and make it executable.
 
-Otherwise download the zip of the files from [https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v2.0.1-stable/recipe_scribe_2.0.1_source_files.tar.gz](https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v2.0.1-stable/recipe_scribe_2.0.1_source_files.tar.gz).
-Extract the .zip and move the folder wherever you want to keep it. Make recipe_scribe.py executable and run from the 
-command line or make a program shortcut.
-No installation is required, all the files are included to run from the extracted folder.
+#### Standalone executable for Linux
+There is also a standalone executable made with PyInstaller available on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
+Extract the binary and make it executable.  
+This method has only been tested on Ubuntu flavors.
 
-Requires tkinter to be installed if running from source.
-Tkinter is bundled with the executable and the AppImage so a seperate installation on the system is not necessary.
-
-#### Installing TKinter
-Debian/Ubuntu:
-```
-sudo apt-get install python3-tk
-```
-Fedora:
-```
-sudo dnf install python3-tkinter 
-```
-Arch:
-```
-sudo pacman -S tk
-```
-
-CentOS, RedHat:
-```
-sudo yum install -y tkinter tk-devel
-```
-
-Tkinter doesn't have to be installed to run the executable.
-
-### AppImage
-
-To use the AppImage, download that file and make it executable.
-It is recommended you place the AppImage in it's own folder such as ~/Recipe-Scribe, as it will create it's own 
-CONFIG file on first use and place it in the folder where the AppImage is run from.
-Currently the AppImage has only been tested on Ubuntu 22.04. I will test on other distros soon.
+#### Running from source
+There is also a zip of the source files on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
+If you want to run it from source, it requires that TKinter be installed seperately on the system.  
+That's up to you, btu there's no real reason to run it from source.  
  
 ## Usage
 
