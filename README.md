@@ -21,7 +21,7 @@ There might be a snap later.<br>
 ![Screenshot](/screenshot/rs_search_window.png?raw=true "Search Window Screenshot")
 
 ## Installation
-#### Flatpak
+### Flatpak
 The simplest and recommended method to run the program is from the Flatpak.  
 If you haven't used Flatpaks, you may need to install it, at least on Ubuntu.
 ```
@@ -39,27 +39,27 @@ Or from Flathub using the link below:
 
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 
-#### AppImage
+### AppImage
 Download the Appimage from the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
 Extract the AppImage wherever you want and make it executable.
 
-#### Standalone executable for Linux
+### Standalone executable for Linux
 There is also a standalone executable made with PyInstaller available on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
 Extract the binary and make it executable.  
 This method has only been tested on Ubuntu flavors.
 
-#### Running from source
+### Running from source
 There is also a zip of the source files on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
 If you want to run it from source, it requires that TKinter be installed seperately on the system.  
 That's up to you, btu there's no real reason to run it from source.  
  
 ## Usage
 
-On the first run of the program a file named recipe_scribe.conf will be created in ~/.config.
-Click Config in the menu to set your default save path. This will be where the save dialog starts when saving a file and 
-should be the root directory of your recipe folder. 
+On the first run of the program a file named recipe_scribe.conf will be created in ~/.config.  
+Click Config in the menu to set your default save path.  
+This will be where the save dialog starts when saving a file and should be the root directory of your recipe folder.  
 Not setting this will cause the save dialog to default to the program folder and require unnecessary navigation to
-the desired directory to save the first file each session.
+the desired directory to save the first file each session.  
 This is required to be set for the search function to work.
 
 Fill out the recipe title, the ingredients, and the directions in the main window.
