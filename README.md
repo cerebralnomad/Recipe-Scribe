@@ -33,7 +33,11 @@ Then add the flatpak repo:
 ```
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
-Then either install at the following link:
+Then either install from the command line:
+```
+flatpak install com.cerebralnomad.recipescribe
+```
+Or from Flathub using the link below:
 
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 
