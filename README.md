@@ -14,7 +14,7 @@ Get the standlone Linux executable or the AppImage from the [Releases Page](http
 A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
 There might be a snap later.<br>
 <center>
-[![Flathub Icon](/screenshot/flathub_icon.png?raw=true "Flathub Icon")](https://flathub.org/apps/com.cerebralnomad.recipescribe)
+![Flathub Icon](/screenshot/flathub_icon.png?raw=true "Flathub Icon")
 </center><br>
  
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
