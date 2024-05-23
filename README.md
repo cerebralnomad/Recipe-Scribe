@@ -11,10 +11,10 @@ Allows editing existing recipes from within the app without needing to open in a
 Version 2.0 is considered feature complete at this time. <br>
 I don't plan any further development for the forseeable future, barring any bugs found.<br>
 Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0-stable)<br>
-A Flatpak is now available on [https://flathub.org/apps/com.cerebralnomad.recipescribe](Flathub).<br>
+A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
 There might be a snap later.<br>
 <center>
-[![Flathub Icon](/screenshot/flathub_icon.png)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
+[![Flathub Icon](/screenshot/flathub_icon.png?raw=true 'Flathub Icon')](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 </center><br>
  
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
