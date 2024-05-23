@@ -24,6 +24,19 @@ There might be a snap later.<br>
 
 ## Installation
 
+The simplest and recommended method to run the program is from the Flatpak.  
+If you haven't used Flatpaks, you may need to install it, at least on Ubuntu.
+```
+sudo apt install flatpak
+```
+Then add the flatpak repo:
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+Then either install at the following link:
+
+[![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
+
 You can download the recipe_scribe_linux_executable tarball for a standalone executable for Linux made with Pyinstaller.
 No Windows exe, but you're welcome to make your own using the source files on windows.
 
