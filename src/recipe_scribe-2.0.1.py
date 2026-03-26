@@ -147,7 +147,7 @@ img = tk.PhotoImage(file=icon_loc)
 root.iconphoto(False, img)
 
 if fullscreen == 'True' or fullscreen == 'true':
-    root.attributes('-zoomed', True)
+    root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_screenheight()}+0+0")
     #width = int(root.winfo_screenwidth())
     #height = int(root.winfo_screenheight())
 else:
