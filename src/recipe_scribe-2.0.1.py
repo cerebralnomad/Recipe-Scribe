@@ -3,6 +3,8 @@
 Before running pyinstaller uncomment lines 133-136
 Comment lines 144-145
 
+See comment starting line 31 for building AppImage or Flatpak
+
 Version 2.0.1
 Fixed the location of the config to ~/.config/recipe_scribe.conf
 instead of in the program folder
@@ -279,10 +281,10 @@ class MAIN():
         if use_bp =="True" or use_bp == "true":
             for i in ingredients:
                 line = i
-                if re.match('\.', line): # Lines beginning with a . are written as is
+                if re.match(r'\.', line): # Lines beginning with a . are written as is
                     newline = re.sub(r'\.', '', line)
                     file.write(newline + '\n')
-                elif not re.match('\w', line): # using re import for regex search to see if line contains letters or numbers
+                elif not re.match(r'\w', line): # using re import for regex search to see if line contains letters or numbers
                     file.write(line +'\n')
                 else:
                     file.write('• ' + line + '\n')  # Prepend each ingredient with a bullet point
@@ -318,7 +320,7 @@ class MAIN():
             line = i
             if re.match('[1-9]', line):
                 file.write(line + '\n')
-            elif re.match('\.', line): # Do not indent lines beginning with a period
+            elif re.match('r\.', line): # Do not indent lines beginning with a period
                 newline = re.sub(r'\.', '', line) # Remove the . before writing
                 file.write(newline + '\n')
             else:
