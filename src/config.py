@@ -31,11 +31,11 @@ DEFAULT_CATEGORIES = [
 
 _COMMENT_LINES = [
     "# The options can be changed from the GUI",
-    "# If editing this file directly:",
-    "# Options for UseBulletPoints are True or False (default: True)",
-    "# Options for FormatFileName are True or False (default: True)",
-    "# Options for UseDarkMode are True or False (default: False)",
-    "# Options for StartFullscreen are True or False (default: False)",
+    "# If editing this file directly, note the following",
+    "# Options for UseBulletPoints are True or False, default is True",
+    "# Options for FormatFileName are True or False, default is True",
+    "# Options for UseDarkMode are True or False, default is False",
+    "# Options for StartFullscreen are True or False, default is False",
     "# Categories is a comma-separated list, e.g. Breakfast,Lunch,Dinner,Dessert",
     "# Anything other than true or false will result in the default",
 ]
@@ -96,10 +96,26 @@ class AppConfig:
     def load(self) -> None:
         """
         Loads settings from disk. If the config file doesn't exist yet,
-        creates it with default values first.
+        creates it with default values first. If the existing file can't
+        be parsed at all (corrupted by a bug, a bad manual edit, or a
+        crash mid-write), falls back to fresh defaults and overwrites it
+        rather than crashing the whole app on every launch - a config
+        file existing at all is not something the rest of the app should
+        need to treat as a hard guarantee of validity.
         """
         if os.path.exists(self.config_path):
-            self._parser.read(self.config_path)
+            try:
+                self._parser.read(self.config_path)
+            except configparser.Error:
+                self._parser = configparser.ConfigParser(
+                    comment_prefixes="/", allow_no_value=True
+                )
+                self._parser.optionxform = str
+                self._ensure_sections_exist()
+                self._write_comment_block()
+                self._write_current_values_to_parser()
+                self._write_to_disk()
+                return
             self._read_values_from_parser()
         else:
             self._ensure_sections_exist()
