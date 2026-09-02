@@ -1,12 +1,17 @@
 # This is an in-place toolkit swap: same app ID as the Tkinter version, so
 # Flathub treats this as an update rather than a new listing.
 #
-# Note on finish-args: these differ from the Tkinter version's manifest
-# (which only requested --socket=x11) 
-# The original Tkinter version failed to run on Wayland. 
-# The cause was eventually found and corrected, but with the complete rewrite
-# I felt it was time to add Wayland support
-# No new permissions have been added
+# Note on finish-args: these differ from the Tkinter version's manifest,
+# which only requested --socket=x11. The original Tkinter version failed
+# to run on Wayland; the cause was eventually found and corrected, but
+# with the complete rewrite I felt it was time to add proper Wayland
+# support (--socket=wayland, with --socket=fallback-x11 for non-Wayland
+# sessions) rather than keep the X11-only socket.
+#
+# This IS a permission change (x11 removed, wayland + fallback-x11 added),
+# so under Flathub's current policy it will be flagged for manual review
+# even though the sockets themselves are low-risk - expect a review
+# cycle on this update rather than an automatic merge.
 
 id: com.cerebralnomad.recipescribe
 runtime: org.kde.Platform
@@ -52,5 +57,5 @@ modules:
       # subfolders), com.cerebralnomad.recipescribe.desktop,
       # com.cerebralnomad.recipescribe.metainfo.xml, and icons/.
       - type: archive
-        url: https://github.com/cerebralnomad/Recipe-Scribe-Qt/releases/download/vX.X.X/recipe_scribe_qt_X.X.X_flatpak_source_files.tar.gz
+        url: https://github.com/cerebralnomad/Recipe-Scribe/releases/download/vX.X.X/recipe_scribe_qt_X.X.X_flatpak_source_files.tar.gz
         sha256: REPLACE_WITH_ACTUAL_SHA256_OF_RELEASE_ASSET

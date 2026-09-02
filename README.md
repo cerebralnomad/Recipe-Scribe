@@ -1,33 +1,40 @@
 # Recipe Scribe
-A no frills recipe program. Creates recipes as text files without a database and saves to your specified location.<br>  
-Includes a built in search to find recipes in your collection by name or partial name or ingredient.<br>
-Allows editing existing recipes from within the app without needing to open in a text editor.
 
+A no frills recipe program. Creates recipes as text files without a database and saves them
+to your specified location.<br>
+Organize your collection into categories, and search by title, content, or both, with any
+number of search terms.<br>
+Allows editing existing recipes from within the app without needing to open a text editor.
+
+* Organize recipes into categories, managed from the Config menu
+* Search by title, content, or both, filtered by category if you like, with no limit on
+  the number of search terms
 * Automatically adds bullet points to ingredients (configurable)
-* Automatic indentation of directions (configurable)
+* Automatic indentation of directions, correctly aligned even at step 10 and beyond
+  (configurable)
 * Automatic formatting of the title to the filename (configurable)
 * Light or Dark mode
 
-Version 3.0 has been completely rewritten to use the Qt toolkit instead of Tkinter. <br>
-I don't plan any further development for the forseeable future, barring any bugs found.<br>
-Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable)<br>
-A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
-There might be a snap later.<br>
+Version 3.0 is a complete rewrite from Tkinter to the Qt toolkit (PyQt6), adding categories
+and a much more capable search. I don't plan any further major development for the
+foreseeable future, barring any bugs found.<br>
+A Flatpak is available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).
 
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
- 
+
 ![Screenshot](/screenshot/rs_main_window.png?raw=true "Screenshot")
 ![Screenshot](/screenshot/rs_dark_mode.png?raw=true "Dark mode screenshot")
 ![Screenshot](/screenshot/rs_search_window.png?raw=true "Search Window Screenshot")
 
 ## Installation
+
 ### Flatpak
-The simplest and recommended method to run the program is from the Flatpak.  
-If you haven't used Flatpaks, you may need to install it, at least on Ubuntu.
+The simplest and recommended method to run the program is from the Flatpak.
+If you haven't used Flatpaks before, you may need to install it, at least on Ubuntu.
 ```
 sudo apt install flatpak
 ```
-Then add the flatpak repo:
+Then add the Flathub repo:
 ```
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
@@ -40,136 +47,153 @@ Or from Flathub using the link below:
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 
 ### AppImage
-AppImage for version 3.0 will be forthcoming. I'll leave the version 2.0, still using Tkinter, available in the mean time.
-Download the Appimage from the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
-Extract the AppImage wherever you want and make it executable.
+An AppImage for version 3.0 (Qt) is not yet available.
+The version 2.0.1 AppImage, still using Tkinter, remains available on the
+[Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page
+in the meantime.
 
 ### Running from source
-You can run from source, but it would be best to do so in a Python virtual environment. 
-I doubt anyone will have a reason to do so, but if you do here is the process to do so on Linux.
-Create a directory to store the files:
+You can run from source, but it's best to do so in a Python virtual environment.
 ```
-mkdir ~/Recipe-Scribe
-cd ~/Recipe-Scribe
-```
-Create the virtual environment:
-```
+git clone https://github.com/cerebralnomad/Recipe-Scribe.git
+cd Recipe-Scribe
 python3 -m venv venv
 source venv/bin/activate
+pip install -r requirements.txt
+python src/main.py
 ```
-Install PyQt6:
-```
-pip3 install PyQt6
-```
-
+Requires Python 3.10 or newer.
 
 ## Usage
 
-On the first run of the program a file named recipe_scribe.conf will be created in ~/.config.  
-Click Config in the menu to set your default save path.  
-This will be where the save dialog starts when saving a file and should be the root directory of your recipe folder.  
-Not setting this will cause the save dialog to default to the program folder and require unnecessary navigation to
-the desired directory to save the first file each session.  
+On the first run of the program a file named `recipe_scribe_qt.conf` will be created in
+`~/.config`.<br>
+Click Config in the menu to set your default save path.
+This will be where the save dialog starts when saving a file, and should be the root
+directory of your recipe folder.
+Not setting this will cause the save dialog to default to wherever it last was, and require
+unnecessary navigation to the desired directory the first time you save each session.
 This is required to be set for the search function to work.
 
-Fill out the recipe title, the ingredients, and the directions in the main window.
-Use File>Save or Ctrl+s to save. 
+Fill out the recipe title, category, ingredients, and directions in the main window.
+Use File > Save or Ctrl+S to save.
 
-The recipe title will be reformatted for use as the file name. It will be converted to all lower case and spaces will be 
-changed to underscores.
+The recipe title will be reformatted for use as the file name. It will be converted to all
+lower case and spaces will be changed to underscores. This can be disabled from the Config
+menu if you'd rather the filename match the title exactly.
 
-A bullet point will be added before each ingredient.
-If you don't want bullet points before each ingredient you can disable them by 
-selecting that item on the Config menu and choosing False.
-Re-enable them by changing it back to True. 
+### Category
 
-If you don't want the recipe title automatically formatted for use as the filename,
-then select that option in the Config menu and choose False.  
-This will cause the program to use the recipe name as written for the filename, 
-including spaces and capital letters.
+Choose a category from the dropdown, or type a new one directly into the box. If you type a
+category that isn't in your list yet, you'll be asked whether to add it when you save.
 
-Any changes to the configuration will trigger a program restart so they take effect immediately.
+You can also manage your category list at any time from Config > Manage Categories - add,
+rename, or remove categories in one session, with a Done/Cancel step so you can back out of
+changes before they're saved.
+
+Renaming or removing a category only changes the list you pick from going forward - recipes
+you've already saved keep whatever category text was written into them at the time.
+
+### Ingredients
+
+A bullet point will be added before each ingredient. Only place one ingredient per line - a
+new line is created when you press Enter, not when a long ingredient wraps visually.
+
+If you don't want bullet points before each ingredient, disable them from the Config menu.
 
 Blank lines in the ingredients list will not have a bullet point.
-To omit the bullet point from a line of text in the ingredients list, begin the line with a period (.).
-The period will be removed automatically when saving the file.
+To omit the bullet point from a line of text in the ingredients list, begin the line with a
+period (`.`). The period will be removed automatically when saving the file. This is useful
+for section headers, such as marking out a sub-recipe within the ingredients.
 
-Likewise, any line in the Directions beginning with a period will not be indented.
-This allows you to include Notes or Links in the directions without having them indented,
-making the saved file look better.
-
-### Ingredients Example
-If you enter:  
-> ingredient 1  
-> ingredient 2  
-> ingredient 3  
+#### Ingredients Example
+If you enter:
+> ingredient 1
+> ingredient 2
+> ingredient 3
 >
-> .For the Gravy  
-> gravy ingredient 1  
-> gravy ingredient 2  
+> .For the Gravy
+> gravy ingredient 1
+> gravy ingredient 2
 
-The saved file will be:  
-> • ingredient 1  
-> • ingredient 2  
-> • ingredient 3  
+The saved file will be:
+> • ingredient 1
+> • ingredient 2
+> • ingredient 3
 >
-> For the Gravy  
-> • gravy ingredient 1  
-> • gravy ingredient 2  
+> For the Gravy
+> • gravy ingredient 1
+> • gravy ingredient 2
 
-Unnumbered lines in the directions will be indented 3 spaces unless preceeded by a period.
+### Directions
 
-### Directions example
-If you enter: 
+Unnumbered lines in the directions will be automatically indented so they line up under the
+step they belong to - this now stays correctly aligned at step 10 and beyond, not just
+single-digit steps.
+
+Any line in the Directions beginning with a period will not be indented. This allows you to
+include notes or links in the directions without having them indented, making the saved file
+look better.
+
+#### Directions Example
+If you enter:
 ```
-1. This is the first step.  
+1. This is the first step.
 This is another part of the first step
 
 2. This is the second step.
 A continuation of the second step.
 
-.Link to the recipe or youtube video
+.Link to the recipe or a video
 ```
-The saved file will read:  
+The saved file will read:
 ```
-1. This is the first step<br>
+1. This is the first step.
    This is another part of the first step
 
 2. This is the second step.
    A continuation of the second step.
 
-Link to the recipe or youtube video
+Link to the recipe or a video
 ```
-After saving use File>New or Ctrl+n to clear the entry boxes for the creation of another recipe.
-Program help can be found in the Menu
 
-### Search Function Usage
-You must have a default save path set to use the recipe search.  
+After saving, use File > New or Ctrl+N to clear the entry boxes for the creation of another
+recipe. Program help can be found in the Help menu at any time.
+
+### Recipe Search
+
+You must have a default save path set to use the recipe search.
 It uses this path as the location to perform the search.
 
-To search your recipies from the program, click Search Recipies in the menubar.  
-Type your search term in the search box and click either the Ingredient Search or Title Search button.  
-The Title Search will look for the search term in the titles of all your recipes.  
-The Ingredient Search will search the contents of every recipe file in your collection for the search term.  
-Searches are not case sensitive.
+Click "Search Recipes" in the menu bar to switch to the search page. Type a search term into
+the search box - any number of words is supported, and a recipe must contain all of them to
+match. Use the Scope dropdown to search titles only, recipe content only, or both. Use the
+Category dropdown to narrow results to a single category, or leave the search box empty and
+pick a category to browse everything filed under it. Searches are not case sensitive.
 
-The search results will display in the left hand pane. Click on a result and the recipe will be displayed in the right pane.  
-You can edit the recipe from the program if you need to. Simply make your changes and click the Save button.  
-Clicking the Save button will immediately overwrite the existing file with the contents of the window displaying the recipe.  
-There is no confirmation dialog.
+The search results display in the left hand pane, along with each recipe's category if it has
+one. Click a result and the recipe displays in the right pane, where you can edit both its
+text and its category. Click Save Edits to write your changes - this immediately overwrites
+the existing file. There is no confirmation dialog.
 
-Single word searches work best and title searches only support single words.  
-When searching for two words, results will include all files which contain both words.  
-This can greatly increase results in some cases.  
-Searching for more than two words is not supported and will return an error message as the results.
+### Config Menu
+
+| Item | Effect |
+|---|---|
+| Set Default Save Path | Choose where recipes are saved and searched |
+| Use Bullet Points | Toggle ingredient bullet points (restarts the program) |
+| Format Filename | Toggle automatic filename formatting (restarts the program) |
+| Use Dark Mode | Toggle light/dark theme (restarts the program) |
+| Start Fullscreen | Start the program fullscreen next launch (does not restart now) |
+| Manage Categories | Add, rename, or remove categories |
 
 ## Notes
-Now supporting light and dark modes.<br>
-Change to dark mode using the config menu.<br>
-Initial window size now calculated based on screen geometry.<br>
-Can be set to start fullscreen in the config menu.<br>
-The entry boxes now scale properly when resizing the window.<br>
-Added the search feature with editing capabilities.<br>
+Now supporting recipe categories, managed from the Config menu and filterable in search.<br>
+Search rewritten to support any number of search terms, searching title, content, or both.<br>
+Fixed a longstanding bug where direction step indentation misaligned from step 10 onward.<br>
+Supports light and dark modes.<br>
+Can be set to start fullscreen from the Config menu.<br>
+The entry boxes scale properly when resizing the window.<br>
 
 ## License
 

@@ -3,9 +3,6 @@ resources/about_text.py
 
 Plain-text content shown in the About window: version, source link, and
 license details.
-
-NOTE: the source-repo URL below is a placeholder - update it once the new
-repo's actual name/URL is settled.
 """
 
 ABOUT_TEXT = """
@@ -17,7 +14,7 @@ plain-text-file philosophy, plus category organization and improved
 search.
 
 Source Files on GitHub
-https://github.com/cerebralnomad/Recipe-Scribe-Qt
+https://github.com/cerebralnomad/Recipe-Scribe
 
 Copyright (C) 2026 Clay Davenport
 This program is free software: you can redistribute it and/or modify

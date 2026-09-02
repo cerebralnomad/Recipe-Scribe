@@ -13,8 +13,8 @@
           <name>Recipe Scribe</name>
   </developer>
 
-  <url type="homepage">https://github.com/cerebralnomad/Recipe-Scribe-Qt</url>
-  <url type="bugtracker">https://github.com/cerebralnomad/Recipe-Scribe-Qt/issues</url>
+  <url type="homepage">https://github.com/cerebralnomad/Recipe-Scribe</url>
+  <url type="bugtracker">https://github.com/cerebralnomad/Recipe-Scribe/issues</url>
 
   <description>
     <p>
@@ -38,7 +38,7 @@
 
   <releases>
     <release version="3.0.0" date="YYYY-MM-DD">
-    <url type="details">https://github.com/cerebralnomad/Recipe-Scribe-Qt/releases/tag/vX.X.X</url>
+    <url type="details">https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/vX.X.X</url>
       <description>
         <p>Recipe Scribe 3.0.0</p>
           <ul>
@@ -76,25 +76,19 @@
   <icon type="stock">com.cerebralnomad.recipescribe</icon>
 
   <screenshots>
-    <!-- PLACEHOLDER - these still point at the Tkinter version's
-         screenshots. Replace with current screenshots of the Qt UI
-         (light mode, search page, dark mode) before submitting, hosted
-         in the Recipe-Scribe-Qt repo. -->
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe-Qt/master/screenshot/rs_main_window.png</image>
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_main_window.png</image>
       <caption>Main window in light mode</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe-Qt/master/screenshot/rs_search_window.png</image>
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_search_window.png</image>
       <caption>Recipe search panel</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe-Qt/master/screenshot/rs_dark_mode.png</image>
+      <image>https://raw.githubusercontent.com/cerebralnomad/Recipe-Scribe/master/screenshot/rs_dark_mode.png</image>
       <caption>Main window in dark mode</caption>
     </screenshot>
   </screenshots>
-
-  <icon type="stock">rc</icon>
 
   <categories>
     <category>Utility</category>
