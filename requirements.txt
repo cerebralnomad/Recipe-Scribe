@@ -1,0 +1,6 @@
+PyQt6
+pytest
+
+# Optional, uncomment as needed:
+# pyqt6-tools     # Qt Designer, for visual layout editing
+# pyinstaller     # for building standalone executables during the packaging phase

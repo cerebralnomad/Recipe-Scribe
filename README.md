@@ -8,7 +8,7 @@ Allows editing existing recipes from within the app without needing to open in a
 * Automatic formatting of the title to the filename (configurable)
 * Light or Dark mode
 
-Version 2.0 is considered feature complete at this time. <br>
+Version 3.0 has been completely rewritten to use the Qt toolkit instead of Tkinter. <br>
 I don't plan any further development for the forseeable future, barring any bugs found.<br>
 Get the standlone Linux executable or the AppImage from the [Releases Page](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable)<br>
 A Flatpak is now available on [Flathub](https://flathub.org/apps/com.cerebralnomad.recipescribe).<br>
@@ -40,19 +40,29 @@ Or from Flathub using the link below:
 [![Flathub Icon](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/com.cerebralnomad.recipescribe)
 
 ### AppImage
+AppImage for version 3.0 will be forthcoming. I'll leave the version 2.0, still using Tkinter, available in the mean time.
 Download the Appimage from the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
 Extract the AppImage wherever you want and make it executable.
 
-### Standalone executable for Linux
-There is also a standalone executable made with PyInstaller available on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
-Extract the binary and make it executable.  
-This method has only been tested on Ubuntu flavors.
-
 ### Running from source
-There is also a zip of the source files on the [Releases](https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v2.0.1-stable) page.  
-If you want to run it from source, it requires that TKinter be installed seperately on the system.  
-That's up to you, btu there's no real reason to run it from source.  
- 
+You can run from source, but it would be best to do so in a Python virtual environment. 
+I doubt anyone will have a reason to do so, but if you do here is the process to do so on Linux.
+Create a directory to store the files:
+```
+mkdir ~/Recipe-Scribe
+cd ~/Recipe-Scribe
+```
+Create the virtual environment:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+Install PyQt6:
+```
+pip3 install PyQt6
+```
+
+
 ## Usage
 
 On the first run of the program a file named recipe_scribe.conf will be created in ~/.config.  

@@ -1,12 +1,25 @@
+"""
+resources/about_text.py
 
-about_text = '''
-Recipe Creator
-version 2.0.1
+Plain-text content shown in the About window: version, source link, and
+license details.
+
+NOTE: the source-repo URL below is a placeholder - update it once the new
+repo's actual name/URL is settled.
+"""
+
+ABOUT_TEXT = """
+Recipe Scribe Qt
+version 1.0.0
+
+A PyQt6-based rewrite of Recipe Scribe, with the same no-database,
+plain-text-file philosophy, plus category organization and improved
+search.
 
 Source Files on GitHub
-https://github.com/cerebralnomad/gui_recipe_creator
- 
-Copyright (C) 2024 Clay Davenport
+https://github.com/cerebralnomad/Recipe-Scribe-Qt
+
+Copyright (C) 2026 Clay Davenport
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -19,10 +32,4 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-=======================================================================
-The program icon is licensed under the Creative Commons
-https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
-
-Icon created by Hopstarter (Jojo Mendoza)
-http://hopstarter.deviantart.com/
-'''
+"""

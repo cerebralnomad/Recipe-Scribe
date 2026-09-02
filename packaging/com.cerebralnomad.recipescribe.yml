@@ -1,0 +1,56 @@
+# This is an in-place toolkit swap: same app ID as the Tkinter version, so
+# Flathub treats this as an update rather than a new listing.
+#
+# Note on finish-args: these differ from the Tkinter version's manifest
+# (which only requested --socket=x11) 
+# The original Tkinter version failed to run on Wayland. 
+# The cause was eventually found and corrected, but with the complete rewrite
+# I felt it was time to add Wayland support
+# No new permissions have been added
+
+id: com.cerebralnomad.recipescribe
+runtime: org.kde.Platform
+runtime-version: '6.10'
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.10'
+command: recipe_scribe_qt
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
+build-options:
+  env:
+    # This app has no need for QtWebEngine - strip it and PyQtWebEngine
+    # during the BaseApp cleanup step to keep the final app size down.
+    - BASEAPP_REMOVE_WEBENGINE=1
+
+finish-args:
+  - --filesystem=home:rw
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+
+modules:
+  - name: recipescribe-qt
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/bin/windows /app/bin/resources
+      - install -Dm755 src/main.py /app/bin/recipe_scribe_qt
+      - cp src/config.py src/formatting.py src/categories.py src/search.py src/theme.py /app/bin/
+      - cp src/windows/*.py /app/bin/windows/
+      - cp src/resources/*.py /app/bin/resources/
+      - install -D com.cerebralnomad.recipescribe.metainfo.xml /app/share/metainfo/com.cerebralnomad.recipescribe.metainfo.xml
+      - install -D com.cerebralnomad.recipescribe.desktop /app/share/applications/com.cerebralnomad.recipescribe.desktop
+      - install -Dm644 icons/rc_128.png /app/share/icons/hicolor/128x128/apps/com.cerebralnomad.recipescribe.png
+      - install -Dm644 icons/rc_256.png /app/share/icons/hicolor/256x256/apps/com.cerebralnomad.recipescribe.png
+    sources:
+      # PLACEHOLDER - update the URL, tag, and sha256 to match the actual
+      # GitHub release asset once cut, same pattern as the Tkinter
+      # version's "flatpak_source_files.tar.gz" release asset. This
+      # archive should contain: src/ (with windows/ and resources/
+      # subfolders), com.cerebralnomad.recipescribe.desktop,
+      # com.cerebralnomad.recipescribe.metainfo.xml, and icons/.
+      - type: archive
+        url: https://github.com/cerebralnomad/Recipe-Scribe-Qt/releases/download/vX.X.X/recipe_scribe_qt_X.X.X_flatpak_source_files.tar.gz
+        sha256: REPLACE_WITH_ACTUAL_SHA256_OF_RELEASE_ASSET
