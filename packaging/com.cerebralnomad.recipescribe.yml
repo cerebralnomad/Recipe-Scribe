@@ -8,10 +8,6 @@
 # support (--socket=wayland, with --socket=fallback-x11 for non-Wayland
 # sessions) rather than keep the X11-only socket.
 #
-# This IS a permission change (x11 removed, wayland + fallback-x11 added),
-# so under Flathub's current policy it will be flagged for manual review
-# even though the sockets themselves are low-risk - expect a review
-# cycle on this update rather than an automatic merge.
 
 id: com.cerebralnomad.recipescribe
 runtime: org.kde.Platform
