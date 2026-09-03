@@ -49,3 +49,12 @@ modules:
       - type: archive
         url: https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v3.0.0-stable/recipe_scribe_qt_3.0.0_flatpak_source_files.tar.gz
         sha256: 0c7ed8817ddc2ebd4165bcfeb194374d8efbd5c1de6da0336682dbf8d1bc836a
+        # This archive has no wrapping top-level directory (built flat, with
+        # src/, icons/, and the .desktop/.metainfo.xml files at its root) -
+        # flatpak-builder defaults to strip-components: 1 for archive
+        # sources, assuming a wrapper folder like GitHub's own auto-generated
+        # tarballs have. Without this override, that default strips the
+        # leading "src/" from every source file (and drops the two
+        # top-level files entirely, since they have no directory component
+        # to strip), causing "cannot stat 'src/main.py'" at build time.
+        strip-components: 0
