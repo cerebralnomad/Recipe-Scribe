@@ -46,12 +46,6 @@ modules:
       - install -Dm644 icons/rc_128.png /app/share/icons/hicolor/128x128/apps/com.cerebralnomad.recipescribe.png
       - install -Dm644 icons/rc_256.png /app/share/icons/hicolor/256x256/apps/com.cerebralnomad.recipescribe.png
     sources:
-      # PLACEHOLDER - update the URL, tag, and sha256 to match the actual
-      # GitHub release asset once cut, same pattern as the Tkinter
-      # version's "flatpak_source_files.tar.gz" release asset. This
-      # archive should contain: src/ (with windows/ and resources/
-      # subfolders), com.cerebralnomad.recipescribe.desktop,
-      # com.cerebralnomad.recipescribe.metainfo.xml, and icons/.
       - type: archive
-        url: https://github.com/cerebralnomad/Recipe-Scribe/releases/download/vX.X.X/recipe_scribe_qt_X.X.X_flatpak_source_files.tar.gz
-        sha256: REPLACE_WITH_ACTUAL_SHA256_OF_RELEASE_ASSET
+        url: https://github.com/cerebralnomad/Recipe-Scribe/releases/download/v3.0.0-stable/recipe_scribe_qt_3.0.0_flatpak_source_files.tar.gz
+        sha256: 0c7ed8817ddc2ebd4165bcfeb194374d8efbd5c1de6da0336682dbf8d1bc836a
