@@ -37,8 +37,8 @@
   </description>
 
   <releases>
-    <release version="3.0.0" date="YYYY-MM-DD">
-    <url type="details">https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/vX.X.X</url>
+    <release version="3.0.0" date="2026-09-03">
+    <url type="details">https://github.com/cerebralnomad/Recipe-Scribe/releases/tag/v3.0.0-stable</url>
       <description>
         <p>Recipe Scribe 3.0.0</p>
           <ul>
