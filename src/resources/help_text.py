@@ -7,8 +7,8 @@ in this version: categories and the merged multi-word search.
 """
 
 HELP_TEXT = """
-Recipe Scribe Qt Usage
-=======================
+Recipe Scribe Usage
+===================
 
 First you should set your default save path using the Config menu item.
 This location is where the save dialog defaults to.
@@ -117,6 +117,10 @@ dropdown to search titles only, recipe content only, or both. Use the
 Category dropdown to narrow results to a single category, or leave the
 search box empty and pick a category to browse everything filed under it.
 Searches are not case sensitive.
+
+Recipes created with the previous version of the program before the category
+feature was implemented, will not have a category and will not be shown
+in a category only search with no keywords.
 
 The search results will display in the left hand pane, along with each
 recipe's category if it has one. Click on a result and the recipe will be

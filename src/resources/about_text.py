@@ -6,8 +6,8 @@ license details.
 """
 
 ABOUT_TEXT = """
-Recipe Scribe Qt
-version 1.0.0
+Recipe Scribe
+version 3.0.0
 
 A PyQt6-based rewrite of Recipe Scribe, with the same no-database,
 plain-text-file philosophy, plus category organization and improved
